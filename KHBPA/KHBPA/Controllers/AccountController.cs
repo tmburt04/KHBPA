@@ -40,6 +40,7 @@ namespace KHBPA.Controllers
             }
         }
 
+        //AV
         public ApplicationUserManager UserManager
         {
             get
