@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+// Vince did this
 namespace KHBPA.Models
 {
     public class ExternalLoginConfirmationViewModel
