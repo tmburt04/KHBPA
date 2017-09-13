@@ -1,0 +1,58 @@
+﻿@model KHBPA.Models.Events
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Events</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EventName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
