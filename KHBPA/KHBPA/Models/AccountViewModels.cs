@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace KHBPA.Models
@@ -15,6 +16,7 @@ namespace KHBPA.Models
         public string ReturnUrl { get; set; }
     }
 
+    
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
