@@ -27,7 +27,5 @@ namespace KHBPA.Models
         public string Signature { get; set; }
         public string Affiliation { get; set; }
         public string ManagingPartner { get; set; }
-
-
     }
 }

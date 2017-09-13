@@ -29,7 +29,6 @@ namespace KHBPA.Models
         {
             return new ApplicationDbContext();
         }
-
         public DbSet<Member> Members { get; set; }
 
         public DbSet<Events> Events { get; set; }
