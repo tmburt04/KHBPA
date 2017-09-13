@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-// Vince did this
+
 namespace KHBPA.Models
 {
     public class ExternalLoginConfirmationViewModel
@@ -16,7 +16,7 @@ namespace KHBPA.Models
         public string ReturnUrl { get; set; }
     }
 
-    //Spencer was here
+    
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
