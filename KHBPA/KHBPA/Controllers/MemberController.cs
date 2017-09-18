@@ -46,7 +46,7 @@ namespace KHBPA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FristName,LastName,DateOfBirth,MembershipEnrollment,Income,Email,PhoneNumber,Address,City,State,ZipCode,LicenseNumber,IsOwner,IsTrainer,IsOwnerAndTrainer,AgreedToTerms,Signature,Affiliation,ManagingPartner")] Member member)
+        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,DateOfBirth,MembershipEnrollmentDate,Income,Email,PhoneNumber,Address,City,State,ZipCode,LicenseNumber,IsOwner,IsTrainer,IsOwnerAndTrainer,AgreedToTerms,Signature,Affiliation,ManagingPartner")] Member member)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace KHBPA.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FristName,LastName,DateOfBirth,MembershipEnrollment,Income,Email,PhoneNumber,Address,City,State,ZipCode,LicenseNumber,IsOwner,IsTrainer,IsOwnerAndTrainer,AgreedToTerms,Signature,Affiliation,ManagingPartner")] Member member)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,DateOfBirth,MembershipEnrollmentDate,Income,Email,PhoneNumber,Address,City,State,ZipCode,LicenseNumber,IsOwner,IsTrainer,IsOwnerAndTrainer,AgreedToTerms,Signature,Affiliation,ManagingPartner")] Member member)
         {
             if (ModelState.IsValid)
             {

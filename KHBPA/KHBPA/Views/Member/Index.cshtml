@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FristName)
+            @Html.DisplayNameFor(model => model.FirstName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LastName)
@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.DateOfBirth)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MembershipEnrollment)
+            @Html.DisplayNameFor(model => model.MembershipEnrollmentDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Income)
@@ -74,7 +74,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FristName)
+            @Html.DisplayFor(modelItem => item.FirstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LastName)
@@ -83,7 +83,7 @@
             @Html.DisplayFor(modelItem => item.DateOfBirth)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MembershipEnrollment)
+            @Html.DisplayFor(modelItem => item.MembershipEnrollmentDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Income)
