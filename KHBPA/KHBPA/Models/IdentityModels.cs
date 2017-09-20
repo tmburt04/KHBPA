@@ -32,5 +32,7 @@ namespace KHBPA.Models
         public DbSet<Member> Members { get; set; }
 
         public DbSet<Events> Events { get; set; }
+
+        public DbSet<Document> Document { get; set; }
     }
 }
