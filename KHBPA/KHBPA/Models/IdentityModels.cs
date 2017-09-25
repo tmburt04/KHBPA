@@ -34,5 +34,7 @@ namespace KHBPA.Models
         public DbSet<Events> Events { get; set; }
 
         public DbSet<Document> Document { get; set; }
+
+        public DbSet<Resources> Resources { get; set; }
     }
 }
