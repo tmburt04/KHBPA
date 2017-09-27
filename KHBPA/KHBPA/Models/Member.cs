@@ -10,9 +10,7 @@ namespace KHBPA.Models
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
         public DateTime MembershipEnrollmentDate { get; set; }
-        public decimal Income { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
@@ -24,7 +22,6 @@ namespace KHBPA.Models
         public bool IsTrainer { get; set; }
         public bool IsOwnerAndTrainer { get; set; }
         public bool AgreedToTerms { get; set; }
-        public string Signature { get; set; }
         public string Affiliation { get; set; }
         public string ManagingPartner { get; set; }
     }

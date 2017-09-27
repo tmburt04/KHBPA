@@ -246,6 +246,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Controllers\EventCalendarController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -277,6 +278,14 @@
     <Compile Include="Migrations\201709250035381_AddedResourcesMVC.cs" />
     <Compile Include="Migrations\201709250035381_AddedResourcesMVC.Designer.cs">
       <DependentUpon>201709250035381_AddedResourcesMVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709271045591_UpdatedRegister.cs" />
+    <Compile Include="Migrations\201709271045591_UpdatedRegister.Designer.cs">
+      <DependentUpon>201709271045591_UpdatedRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709272117463_changedMember.cs" />
+    <Compile Include="Migrations\201709272117463_changedMember.Designer.cs">
+      <DependentUpon>201709272117463_changedMember.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -367,9 +376,11 @@
     <Content Include="Views\Resources\Details.cshtml" />
     <Content Include="Views\Resources\Edit.cshtml" />
     <Content Include="Views\Resources\Index.cshtml" />
+    <Content Include="Views\EventCalendar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -402,6 +413,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709250035381_AddedResourcesMVC.resx">
       <DependentUpon>201709250035381_AddedResourcesMVC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709271045591_UpdatedRegister.resx">
+      <DependentUpon>201709271045591_UpdatedRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709272117463_changedMember.resx">
+      <DependentUpon>201709272117463_changedMember.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -64,12 +64,65 @@ namespace KHBPA.Models
         public bool RememberMe { get; set; }
     }
 
+
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+
+        [Display(Name = "Stable, Corpoation, Syndicate, or Farm")]
+        public string Affiliation { get; set; }
+
+        [Display(Name = "Managing Partner")]
+        public string ManagingPartner { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Required]
+        [Display(Name = "Zip")]
+        public string ZipCode { get; set; }
+
+        [Required]
+        [Phone]
+        public string PhoneNumber { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Display(Name = "Owner")]
+        public bool IsOwner { get; set; }
+
+        [Display(Name = "Trainer")]
+        public bool IsTrainer { get; set; }
+
+        [Display(Name = "Owner/Trainer")]
+        public bool IsOwnerAndTrainer { get; set; }
+
+        [Required]
+        [Display(Name = "KRC License #")]
+        public string LicenseNumber { get; set; }
+
+        [Required]
+        [Display(Name = "I Agree to the Terms")]
+        public bool AgreedToTerms { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
