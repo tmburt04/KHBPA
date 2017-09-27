@@ -47,22 +47,22 @@ namespace KHBPA
 
             //For adding more roles on startup
             //// creating Creating Manager role    
-            //if (!roleManager.RoleExists("Manager"))
-            //{
-            //    var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-            //    role.Name = "Manager";
-            //    roleManager.Create(role);
+            if (!roleManager.RoleExists("Manager"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Manager";
+                roleManager.Create(role);
 
-            //}
+            }
 
             //// creating Creating Employee role    
-            //if (!roleManager.RoleExists("Employee"))
-            //{
-            //    var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-            //    role.Name = "Employee";
-            //    roleManager.Create(role);
+            if (!roleManager.RoleExists("Employee"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Employee";
+                roleManager.Create(role);
 
-            //}
+            }
 
         }
     }
