@@ -22,5 +22,5 @@ body {
 input,
 select,
 textarea {
-    max-width: none;
+    max-width: 280px;
 }
