@@ -1,17 +1,69 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<style>
+    body {
+        background-image: url(http://hobbyfarms.com.s3-us-west-2.amazonaws.com/wp-content/uploads/27124518/horse-fence1_David-Clow.jpg);
+        background-size: 100%;
+       
+    }
+
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-empty" style="background-color: rgba(245, 245, 245, 0);">
+                <div class="panel-heading" style="background-color: rgba(245, 245, 245, 0);">
+                    <h1 style="margin-left:20%"> <font color = black> Contact Us </font> </h1>
+                </div>
+                <div>
+                    <table style="text-align:right" class="col-lg-offset-3">
+
+                        <tr><th><font color = black>Kentucky HBPA</font></th>
+                        <tr><th><font color = black>3729 S. Fourth St.</font></th>
+                        <tr><th><font color = black>Louisville, KY 40214-1712</font></th>
+                        <tr><th><font color = black>Monday - Friday 8:30am - 4pm</font></th>
+                        <tr><th><font color = black>Kentuckyhbpa@gmail.com</font></th>
+                        <tr><th><font color = black>Phone: 502-363-1077</font></th>
+                        <tr><th><font color = black>OR EMAIL US THROUGH OUR WEBSITE BELOW</font></th>
+                    </table>
+                </div>
+                <form action="" method="POST">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user blue"></i></span>
+                                <input type="text" name="InputName" placeholder="Name" class="form-control" autofocus="autofocus" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope blue"></i></span>
+                                <input type="email" name="InputEmail" placeholder="Email" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-phone blue"></i></span>
+                                <input type="number" name="InputCno" placeholder="Phone" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-comment blue"></i></span>
+                                <textarea name="InputMessage" rows="6" class="form-control" type="text" required></textarea>
+                            </div>
+                        </div>
+                        <div class="">
+                            <button type="submit" class="btn btn-info pull-right">Send <span class="glyphicon glyphicon-send"></span></button>
+                            <button type="reset" value="Reset" name="reset" class="btn">Reset <span class="glyphicon glyphicon-refresh"></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
