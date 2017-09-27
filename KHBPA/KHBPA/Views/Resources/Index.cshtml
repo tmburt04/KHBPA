@@ -14,16 +14,49 @@
 </p>
 <table class="table">
     <tr>
+        <th>Resources</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <!--<td>
+                Html.DisplayFor(modelItem => item.ResourceType)
+            </td>-->
+            @if (item.ResourceType == 1)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResourceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResourceDesc)
+                </td>
+        <!--if (Roles.IsUserInRole("Admin"))-->
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            }
+
+        </tr>
+    }
+
+</table>
+<table class="table">
+    <tr>
         <!--<th>
             Html.DisplayNameFor(model => model.ResourceType)
-        </th>-->
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ResourceName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ResourceDesc)
         </th>
-        <th></th>
+        <th></th>-->
+        <th>Benefits</th>
     </tr>
 
 @foreach (var item in Model)
@@ -32,22 +65,25 @@
         <!--<td>
             Html.DisplayFor(modelItem => item.ResourceType)
         </td>-->
-        <td>
+        @if (item.ResourceType == 0)
+        {<td>
             @Html.DisplayFor(modelItem => item.ResourceName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ResourceDesc)
         </td>
         <!--if (Roles.IsUserInRole("Admin"))-->
-        
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Details", "Details", new { id = item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
-        
+        }
+
     </tr>
     }     
 
 
 </table>
+
