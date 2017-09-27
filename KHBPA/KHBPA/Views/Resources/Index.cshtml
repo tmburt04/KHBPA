@@ -1,19 +1,22 @@
 ﻿@model IEnumerable<KHBPA.Models.Resources>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Resources and Benefits";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   <!--if(Roles.IsUserInRole("Admin"))-->
+       
+           @Html.ActionLink("Create New", "Create")
+       
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ResourceType)
-        </th>
+        <!--<th>
+            Html.DisplayNameFor(model => model.ResourceType)
+        </th>-->
         <th>
             @Html.DisplayNameFor(model => model.ResourceName)
         </th>
@@ -23,23 +26,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+   {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ResourceType)
-        </td>
+        <!--<td>
+            Html.DisplayFor(modelItem => item.ResourceType)
+        </td>-->
         <td>
             @Html.DisplayFor(modelItem => item.ResourceName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ResourceDesc)
         </td>
+        <!--if (Roles.IsUserInRole("Admin"))-->
+        
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
+        
     </tr>
-}
+    }     
+
 
 </table>
