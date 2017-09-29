@@ -36,5 +36,7 @@ namespace KHBPA.Models
         public DbSet<Document> Document { get; set; }
 
         public DbSet<Resources> Resources { get; set; }
+
+        public DbSet<News> News { get; set; }
     }
 }
