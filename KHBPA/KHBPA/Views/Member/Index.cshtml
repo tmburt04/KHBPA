@@ -1,123 +1,129 @@
-﻿@model IEnumerable<KHBPA.Models.Member>
+@model IEnumerable<KHBPA.Models.Member>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Admin Suite";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
+<div class="container">
+  <div class="row" style="margin: 3% 0">
+    <div class="col-sm-12" style="background-color: #18bc9c !important;">
+      <h1 class="display-3 text-primary text-uppercase">@ViewBag.Title</h1>
+    </div>
+    <div class="well col-sm-12" style="background: rgba(236, 240, 241, 0.85); border-radius: 5px; box-shadow: rgba(175,175,175, 0.5) 3px 3px 5px">
+      <p>
+        @Html.ActionLink("Create New", "Create")
+      </p>
+      <table class="table table-responsive table-bordered">
+        <tr>
+          <th>
             @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.MembershipEnrollmentDate)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.ZipCode)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.LicenseNumber)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.IsOwner)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.IsTrainer)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.IsOwnerAndTrainer)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.AgreedToTerms)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.Affiliation)
-        </th>
-        <th>
+          </th>
+          <th>
             @Html.DisplayNameFor(model => model.ManagingPartner)
-        </th>
-        <th></th>
-    </tr>
+          </th>
+          <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MembershipEnrollmentDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZipCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LicenseNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsOwner)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsTrainer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsOwnerAndTrainer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AgreedToTerms)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Affiliation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ManagingPartner)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+        @foreach (var item in Model)
+        {
+          <tr>
+            <td>
+              @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.MembershipEnrollmentDate)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.LicenseNumber)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.IsOwner)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.IsTrainer)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.IsOwnerAndTrainer)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.AgreedToTerms)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.Affiliation)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => item.ManagingPartner)
+            </td>
+            <td>
+              @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+              @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+              @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+          </tr>
+        }
+      </table>
+    </div>
+  </div>
+</div>
