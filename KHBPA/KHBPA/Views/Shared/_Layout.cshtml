@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          @Html.ActionLink("Kentucky HBPA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+          <b>@Html.ActionLink("Kentucky HBPA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</b>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -26,8 +26,8 @@
             <li>@Html.ActionLink("Resources", "index", "Resources")</li>
             <li>@Html.ActionLink("Calendar", "Index", "EventCalendar")</li>
             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            <li>@Html.ActionLink("Member", "Index", "Member")</li>
             <li>@Html.ActionLink("News", "Index", "News")</li>
+            <li>@Html.ActionLink("Admin", "Index", "Member")</li>
           </ul>
           @Html.Partial("_LoginPartial")
         </div>
@@ -38,9 +38,9 @@
       <hr />
       <footer>
 
-        <div style="overflow: auto; margin: 0; padding: 0">
+        <div style="overflow: auto; margin: 0 5%; padding: 0">
           <span>&copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association</span>
-          <div id="paypal-button" style="float: right; margin: 0 2%; padding: 0"></div>
+          <div id="paypal-button" style="float: right; margin: 0 2% 2% 2%; padding: 0"></div>
         </div>
 
       </footer>
