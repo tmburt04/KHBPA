@@ -186,6 +186,7 @@ namespace KHBPA.Controllers
                    
                     //TODO: Add new ApplicationDbContext code from another controller to the top of this controller
                     _db.Members.Add(member);
+                    UserManager.AddToRole(user.Id, "Member");
                     _db.SaveChanges();
 
                     //user.Roles.Add()
