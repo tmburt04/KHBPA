@@ -307,6 +307,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\218.jpg" />
+    <Content Include="Content\Images\Background.jpg" />
+    <Content Include="Content\Images\jockeyImg.jpg" />
+    <Content Include="Content\Images\kentucky-derby-2016-live-blog-updates-odds-time-tv-channel-online-stream-field-entriesjpg_192kfsw8rsapg1t9ifm34a5e6e.jpg" />
+    <Content Include="Content\Images\kentuckyderby-hero7.jpg" />
+    <Content Include="Content\Images\TwitterFeed.png" />
     <Content Include="Content\MainTheme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -392,7 +398,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
