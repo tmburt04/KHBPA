@@ -313,6 +313,7 @@
     <Content Include="Content\Images\kentucky-derby-2016-live-blog-updates-odds-time-tv-channel-online-stream-field-entriesjpg_192kfsw8rsapg1t9ifm34a5e6e.jpg" />
     <Content Include="Content\Images\kentuckyderby-hero7.jpg" />
     <Content Include="Content\Images\TwitterFeed.png" />
+    <Content Include="Content\Images\UserIcon.png" />
     <Content Include="Content\MainTheme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -395,6 +396,7 @@
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Home\BoardOfDirectors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
