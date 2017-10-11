@@ -34,7 +34,7 @@ namespace KHBPA
                 var user = new ApplicationUser();
                 user.UserName = "admin@email.com"; //Use same UserName and Email for simplicity. 
                 user.Email = "admin@email.com";    //Else you will need to modify the login action in the AccountController
-                string userPWD = "admin";
+                string userPWD = "Welcome1";
 
                 var chkUser = UserManager.Create(user, userPWD);
 
