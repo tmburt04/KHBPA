@@ -26,5 +26,11 @@ namespace KHBPA.Controllers
 
       return View();
     }
+
+    public ActionResult BoardOfDirectors()
+    {
+
+      return View();
+    }
   }
 }
