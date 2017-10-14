@@ -38,5 +38,11 @@ namespace KHBPA.Models
         public DbSet<Resources> Resources { get; set; }
 
         public DbSet<News> News { get; set; }
+
+        public DbSet<Post> Post { get; set; }
+
+        public DbSet<Category> Category { get; set; }
+
+        public DbSet<Tag> Tag { get; set; }
     }
 }

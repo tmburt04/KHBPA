@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+@model KHBPA.Models.ViewModels.ListViewModel
+
+<div id="Content">
+<h1>@ViewBag.Title</h1>
+
+    @Html.ActionLink("Create", "Create", "Blog", new { @class = "btn btn-primary" })
+
+    @Html.Partial("_PagerPartial", Model)
+
+    @if (Model.Posts.Count > 0)
+    {
+        foreach (var post in Model.Posts)
+        {
+            @Html.Partial("_PostTemplatePartial", post)
+        }
+    }
+    else
+    {
+        <p>No posts found!</p>
+    }
+
+    @Html.Partial("_PagerPartial", Model)
+
+</div>
+
+
