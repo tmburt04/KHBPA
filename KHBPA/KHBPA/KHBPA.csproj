@@ -254,7 +254,6 @@
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
-    <Compile Include="Controllers\UserManagementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -341,6 +340,7 @@
     <Content Include="Content\Images\kentucky-derby-2016-live-blog-updates-odds-time-tv-channel-online-stream-field-entriesjpg_192kfsw8rsapg1t9ifm34a5e6e.jpg" />
     <Content Include="Content\Images\kentuckyderby-hero7.jpg" />
     <Content Include="Content\Images\TwitterFeed.png" />
+    <Content Include="Content\Images\UserIcon.png" />
     <Content Include="Content\MainTheme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
