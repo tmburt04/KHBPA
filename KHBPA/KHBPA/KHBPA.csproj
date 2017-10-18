@@ -257,6 +257,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PhotoGalleryController.cs" />
     <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -612,6 +613,11 @@
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Home\BoardOfDirectors.cshtml" />
+    <Content Include="Views\PhotoGallery\Create.cshtml" />
+    <Content Include="Views\PhotoGallery\Delete.cshtml" />
+    <Content Include="Views\PhotoGallery\Details.cshtml" />
+    <Content Include="Views\PhotoGallery\Edit.cshtml" />
+    <Content Include="Views\PhotoGallery\Index.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
