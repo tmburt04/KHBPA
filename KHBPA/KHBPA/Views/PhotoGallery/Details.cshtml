@@ -1,0 +1,74 @@
+﻿@model KHBPA.Models.Document
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Document</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UploadDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UploadDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UploadedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UploadedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileBytes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileBytes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discriminator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discriminator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContentLength)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
