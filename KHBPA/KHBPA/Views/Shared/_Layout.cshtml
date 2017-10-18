@@ -32,7 +32,12 @@
             @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
             <li>@Html.ActionLink("Resources", "index", "Resources")</li>
             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            <li>@Html.ActionLink("News and Events", "Index", "News")</li>
+              <li class="dropdown">
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">News and Events<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li>@Html.ActionLink("News", "Index", "News")</li>
+                      <li>@Html.ActionLink("Calendar", "Index", "EventCalendar")</li>
+                  </ul>
             <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
             <li>@Html.ActionLink("Admin", "Index", "Member")</li>
           </ul>
