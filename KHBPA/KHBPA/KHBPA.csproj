@@ -307,6 +307,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Resources.cs" />
     <Compile Include="Models\ViewModels\EditUserViewModel.cs" />
     <Compile Include="Models\ViewModels\SelectRoleEditorViewModel.cs" />
