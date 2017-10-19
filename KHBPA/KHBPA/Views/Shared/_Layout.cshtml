@@ -18,7 +18,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <b>@Html.ActionLink("Kentucky HBPA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</b>
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                <img class="img-responsive" src="~/Content/Images/KYHBPA-Logo-white.png" title="home" />
+            </a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -29,12 +31,16 @@
                       <li>@Html.ActionLink("Board Of Directors", "BoardOfDirectors", "Home")</li>
                   </ul>
               </li>
-            @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
-            <li>@Html.ActionLink("Resources", "index", "Resources")</li>
+            <li>@Html.ActionLink("Benefits", "index", "Resources")</li>
             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            <li>@Html.ActionLink("News and Events", "Index", "News")</li>
+              <li class="dropdown">
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">News and Events<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li>@Html.ActionLink("News", "Index", "News")</li>
+                      <li>@Html.ActionLink("Calendar", "Index", "EventCalendar")</li>
+                  </ul>
             <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
-            <li>@Html.ActionLink("Admin", "Index", "Member")</li>
+            <li>@Html.ActionLink("Admin", "Index", "UserManagement")</li>
           </ul>
           @Html.Partial("_LoginPartial")
         </div>
@@ -46,8 +52,13 @@
       <footer>
 
         <div style="overflow: auto; margin: 0 5%; padding: 0">
-          <span>&copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association</span>
-          <div id="paypal-button" style="float: right; margin: 0 2% 2% 2%; padding: 0"></div>
+       
+          <span>&copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association | 3729 S. Fourth St. | Louisville, KY 40214  | 502-363-1077 | <a href="mailto:kentuckyhbpa@gmail.com" name="Racing Email">kentuckyhbpa@gmail.com</a></span>
+            <div style="font-size: smaller">Background image courtesy of David Clow</div> 
+                <a href="https://www.facebook.com/KYhbpa/" target="blank"><i class="fa fa-facebook d-inline mr-3 text-primary fa-2x"></i></a>
+                <a href="https://twitter.com/kyhbpa?lang=en" target="blank"><i class="fa fa-twitter d-inline mx-3 text-primary fa-2x"></i></a>
+                <a href="https://www.instagram.com/kentuckyhbpa/" target="blank"><i class="fa fa-instagram d-inline mx-3 text-primary fa-2x"></i></a>
+            
         </div>
 
       </footer>
