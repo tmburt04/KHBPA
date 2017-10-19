@@ -7585,6 +7585,12 @@ button.close {
         bottom: -10px;
     }
 
+.full-screen {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .carousel {
     position: relative;
 }
