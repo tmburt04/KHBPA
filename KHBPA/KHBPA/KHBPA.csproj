@@ -355,6 +355,7 @@
     <Content Include="Content\Images\TwitterFeed.png" />
     <Content Include="Content\Images\UserIcon.png" />
     <Content Include="Content\MainTheme.css" />
+    <Content Include="Content\Navibar-CSS.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

@@ -1,0 +1,10 @@
+﻿
+.navbar-nav > li, .navbar-nav {
+    float: left !important;
+    display: inline-block !important;
+}
+
+
+.navbar-brand>img{
+    vertical-align: top !important;
+}

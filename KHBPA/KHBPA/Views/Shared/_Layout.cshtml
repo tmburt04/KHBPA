@@ -1,91 +1,92 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@ViewBag.Title - Kentucky Horsemens Benevolent and Protective Association</title>
-  @Styles.Render("~/Content/css")
-  @Scripts.Render("~/bundles/modernizr")
-  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Kentucky Horsemens Benevolent and Protective Association</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 </head>
 <body>
-  <div class="background">
-    <div class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
-                <img class="img-responsive" src="~/Content/Images/KYHBPA-Logo-white.png" title="home" />
-            </a>
+    <div class="background">
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                        <img class="img-responsive" src="~/Content/Images/KYHBPA-Logo2.png" title="home" />
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">About Us<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("About KHBPA", "About", "Home")</li>
+                                <li>@Html.ActionLink("Board Of Directors", "BoardOfDirectors", "Home")</li>
+                                <li>@Html.ActionLink("Benefits", "Index", "Resources")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">News and Events<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("News", "Index", "News")</li>
+                                <li>@Html.ActionLink("Blog", "Index", "Posts")</li>
+                                <li>@Html.ActionLink("Calendar", "Index", "EventCalendar")</li>
+                            </ul>
+                        <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
+                        <li><a href="https://paypal.com">Donate</a></li>
+                        <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Admin", "Index", "UserManagement")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-              <li class="dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">About Us<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                      <li>@Html.ActionLink("About KHBPA", "About", "Home")</li>
-                      <li>@Html.ActionLink("Board Of Directors", "BoardOfDirectors", "Home")</li>
-                  </ul>
-              </li>
-            <li>@Html.ActionLink("Benefits", "Index", "Resources")</li>
-            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-              <li class="dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">News and Events<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                      <li>@Html.ActionLink("News", "Index", "News")</li>
-                      <li>@Html.ActionLink("Blog", "Index", "Posts")</li>
-                      <li>@Html.ActionLink("Calendar", "Index", "EventCalendar")</li>
-                  </ul>
-            <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
-            <li>@Html.ActionLink("Admin", "Index", "UserManagement")</li>
-          </ul>
-          @Html.Partial("_LoginPartial")
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+
+                <div style="overflow: auto; margin: 0 5%; padding: 0">
+
+                    <span>&copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association | 3729 S. Fourth St. | Louisville, KY 40214  | 502-363-1077 | <a href="mailto:kentuckyhbpa@gmail.com" name="Racing Email">kentuckyhbpa@gmail.com</a></span>
+                    <div style="font-size: smaller">Background image courtesy of David Clow</div>
+                    <a href="https://www.facebook.com/KYhbpa/" target="blank"><i class="fa fa-facebook d-inline mr-3 text-primary fa-2x"></i></a>
+                    <a href="https://twitter.com/kyhbpa?lang=en" target="blank"><i class="fa fa-twitter d-inline mx-3 text-primary fa-2x"></i></a>
+                    <a href="https://www.instagram.com/kentuckyhbpa/" target="blank"><i class="fa fa-instagram d-inline mx-3 text-primary fa-2x"></i></a>
+
+                </div>
+
+            </footer>
         </div>
-      </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
     </div>
-    <div class="container body-content">
-      @RenderBody()
-      <hr />
-      <footer>
-
-        <div style="overflow: auto; margin: 0 5%; padding: 0">
-       
-          <span>&copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association | 3729 S. Fourth St. | Louisville, KY 40214  | 502-363-1077 | <a href="mailto:kentuckyhbpa@gmail.com" name="Racing Email">kentuckyhbpa@gmail.com</a></span>
-            <div style="font-size: smaller">Background image courtesy of David Clow</div> 
-                <a href="https://www.facebook.com/KYhbpa/" target="blank"><i class="fa fa-facebook d-inline mr-3 text-primary fa-2x"></i></a>
-                <a href="https://twitter.com/kyhbpa?lang=en" target="blank"><i class="fa fa-twitter d-inline mx-3 text-primary fa-2x"></i></a>
-                <a href="https://www.instagram.com/kentuckyhbpa/" target="blank"><i class="fa fa-instagram d-inline mx-3 text-primary fa-2x"></i></a>
-            
-        </div>
-
-      </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-  </div>
 </body>
 </html>
 
 <script>
-  paypal.Button.render({
+    paypal.Button.render({
 
-    env: 'production', // Or 'sandbox',
+        env: 'production', // Or 'sandbox',
 
-    commit: true, // Show a 'Pay Now' button
+        commit: true, // Show a 'Pay Now' button
 
-    payment: function () {
-      // Set up the payment here
-    },
+        payment: function () {
+            // Set up the payment here
+        },
 
-    onAuthorize: function (data, actions) {
-      // Execute the payment here
-    }
+        onAuthorize: function (data, actions) {
+            // Execute the payment here
+        }
 
-  }, '#paypal-button');
+    }, '#paypal-button');
 </script>
