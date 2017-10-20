@@ -50,21 +50,64 @@
         </div>
         <div class="container body-content">
             @RenderBody()
-            <hr />
-            <footer>
-
-                <div style="overflow: auto; margin: 0 5%; padding: 0">
-
-                    <span>&copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association | 3729 S. Fourth St. | Louisville, KY 40214  | 502-363-1077 | <a href="mailto:kentuckyhbpa@gmail.com" name="Racing Email">kentuckyhbpa@gmail.com</a></span>
-                    <div style="font-size: smaller">Background image courtesy of David Clow</div>
-                    <a href="https://www.facebook.com/KYhbpa/" target="blank"><i class="fa fa-facebook d-inline mr-3 text-primary fa-2x"></i></a>
-                    <a href="https://twitter.com/kyhbpa?lang=en" target="blank"><i class="fa fa-twitter d-inline mx-3 text-primary fa-2x"></i></a>
-                    <a href="https://www.instagram.com/kentuckyhbpa/" target="blank"><i class="fa fa-instagram d-inline mx-3 text-primary fa-2x"></i></a>
-
-                </div>
-
-            </footer>
         </div>
+        <hr />
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="small" style="font-weight: bold;">
+                            &copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association
+                        </p>
+                        <p class="small">
+                            Background image courtesy of David Clow.
+                        </p>
+                        <div style="display: inline; font-size: 12px; line-height: 12px;">
+                            @Html.ActionLink("About KHBPA", "About", "Home") | 
+                            @Html.ActionLink("Benefits", "Index", "Resources") | 
+                            @Html.ActionLink("News", "Index", "News") | 
+                            @Html.ActionLink("Blog", "Index", "Posts") |                  
+                            @Html.ActionLink("Calendar", "Index", "EventCalendar") |
+                            <a href="https://paypal.com">Donate</a>
+                        </div>
+                        <br />
+                        <div align="left" style="line-height: 12px;">
+                            <p class="small" style="font-weight: bold;">
+                                Follow Us
+                            </p>
+                            <a href="https://www.facebook.com/kyhbpa" target="blank"><i class="fa fa-facebook fa-lg d-inline mr-3 text-white"></i></a>
+                            <a href="https://twitter.com/kyhbpa" target="blank"><i class="fa fa-twitter fa-lg d-inline mx-3 text-white"></i></a>
+                            <a href="https://www.instagram.com/kyhbpa" target="blank"><i class="fa fa-instagram fa-lg d-inline mx-3 text-white"></i></a>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-md-6">
+                        <p class="small" style="font-weight: bold;">
+                            Contact Us
+                        </p>
+                        <p class="small">
+                            Kentucky HBPA
+                        </p>
+                        <p class="small">
+                            <i class="fa d-inline mr-3 text-secondary fa-clock-o"></i>: Mon-Fri 8:30-4:30
+                        </p>
+                        <p class="small">
+                            <i class="fa d-inline mr-3 text-secondary fa-phone"></i>: 502-363-1077
+                        </p>
+                        <p class="small">
+                            <i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>:
+                            <a href="mailto:kentuckyhbpa@gmail.com">
+                                kentuckyhbpa@gmail.com
+                            </a>
+                        </p>
+                        <p style="line-height: 12px !important; font-size: 12px; text-align:justify">
+                            <i class="fa d-inline mr-3 fa-map-marker text-secondary"></i>: 3729 S. Fourth St.
+                            <br>&nbsp; &nbsp; &nbsp; Louisville, KY 40214
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
