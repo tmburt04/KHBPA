@@ -12,23 +12,18 @@ namespace KHBPA.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Post
+    public partial class Tag
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Post()
+        public Tag()
         {
-            this.Comments = new HashSet<Comment>();
-            this.Tags = new HashSet<Tag>();
+            this.Posts = new HashSet<Post>();
         }
     
         public int ID { get; set; }
-        public string Title { get; set; }
-        public System.DateTime DateTime { get; set; }
-        public string Body { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }

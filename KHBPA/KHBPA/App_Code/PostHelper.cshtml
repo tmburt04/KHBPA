@@ -1,0 +1,77 @@
+﻿@using KHBPA.Models;
+
+@helper Render(Post post, System.Web.Mvc.HtmlHelper html, bool isAdmin, bool showComments)
+{
+    <div class="postTitle"><a href="@Href("~/Posts/Details/" + post.ID)">@post.Title</a></div>
+    <div class="postContainer col-md-12">
+     <div class="postTabs">
+        <div class="dateTab col-xs-1">
+            <div class="month">@post.DateTime.ToString("MMM").ToUpper()</div>
+            <div class="day">@post.DateTime.ToString("dd")</div>
+        </div>
+        <div class="commentsTab">
+            <a href="@Href("~/Posts/Details/" + post.ID + "#comments")">@post.Comments.Count</a>
+        </div>
+    </div>
+    <div class="postContent col-md-12">
+        <div class="postBody">@html.Raw(post.Body)</div>
+        <div class="tagList">
+            @foreach (Tag tag in post.Tags)
+            {
+                <span class="tag"><a href="@Href("~/Posts/Tags/" + tag.Name)">@tag.Name</a></span>
+            }
+        </div>
+            <div class="linklist">
+            <!--Can be implmented later based on feedback-->
+            </div>
+         </div>
+    </div>
+    if (User.IsInRole("admin"))
+    {
+        <div class="postControlPanel">
+            <a href="@Href("~/Posts/Delete/" + post.ID)">Delete</a>
+            <a href="@Href("~/Posts/Edit/" + post.ID)">Edit</a>
+        </div>
+    }
+    if (showComments)
+    {
+        <div id="commentContainer">
+            <a id="comments"></a>
+            @foreach (Comment comment in post.Comments.OrderBy(x => x.DateTime))
+            {
+                <div class="comment">
+                    <div class="commentName">
+                        @if (!string.IsNullOrWhiteSpace(comment.Email))
+                        {
+                            <a href="mailto:@comment.Email">@comment.Name</a>
+                        }
+                        else
+                        {
+                            @comment.Name;
+                        }
+                    </div>
+                    said:
+                    <div class="commentBody">
+                        @html.Raw(html.Encode(comment.Body).Replace("\n", "<br/>"))
+                    </div>
+                    <div class="commentTime">at @comment.DateTime.ToString("HH:mm") on @comment.DateTime.ToString("yyyy/mm/dd")</div>
+                </div>
+                if (isAdmin)
+                {
+                    <div class="commentControlPanel">
+                        <a href="@Href("~/Posts/DeleteComment/" + comment.ID)">Delete</a>
+                    </div>
+                }
+            }
+          </div>
+                <div id="commentEditor">
+                <div id="commentPrompt">Leave a comment.</div>
+                <form action="@Href("~/Posts/Comment/" + post.ID)" method="post">
+                    <input type="text" id="commentNamePrompt" name="name" /> Name (required)<br />
+                    <input type="text" id="commentEmailPrompt" name="email" /> Email (optional)<br />
+                    <textarea id="commentBodyInput" name="body" rows="10" cols="60"></textarea><br />
+                    <input type="submit" id="commentSubmitInput" name="submit" value="Submit" />
+                </form>
+            </div>
+    }
+}

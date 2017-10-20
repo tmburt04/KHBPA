@@ -1,0 +1,24 @@
+﻿@using KHBPA.Models;
+@model IEnumerable<Post>
+
+@{
+    ViewBag.Title = "Index";
+    bool isPreviousLinkVisible = ViewBag.IsPreviousLinkVisible ?? false;
+    bool isNextLinkVisible = ViewBag.IsNextLinkVisible ?? false;
+    bool isAdmin = User.IsInRole("admin") ? true : false;
+}
+
+@foreach (Post post in Model)
+{
+   @PostHelper.Render(post, Html, isAdmin, false)
+}
+
+@if (isPreviousLinkVisible)
+{
+    <a id="previousLink" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber - 1))">&lt; Previous Page</a>
+}
+
+@if (isNextLinkVisible)
+{
+    <a id="nextLink" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber + 1))">Next Page &gt;</a>
+}

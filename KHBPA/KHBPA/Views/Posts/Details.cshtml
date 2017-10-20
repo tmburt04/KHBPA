@@ -1,0 +1,13 @@
+﻿@model KHBPA.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+    bool isAdmin = User.IsInRole("admin");
+}
+
+@PostHelper.Render(Model, Html, isAdmin, true)
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
