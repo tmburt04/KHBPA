@@ -22,43 +22,42 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
 @*Carousel*@
-<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top:0; border: 0;">
-    <!-- Carousel indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <!-- Wrapper for carousel items -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/Content/Images/KYHBPA-Pics/Churchill/12.jpg" style="background-image: inherit" />
+<div class="container-fluid nopadding">
+    <div id="myCarousel" class="carousel slide " data-ride="carousel" style="margin-top:0; border: 0;">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="~/Content/Images/KYHBPA-Pics/Churchill/12.jpg" style="background-image: inherit" />
+            </div>
+            <div class="item">
+                <img src="~/Content/Images/KYHBPA-Pics/Ellis-Park/4.jpg" style="background-image: inherit" />
+            </div>
+            <div class="item">
+                <img src="~/Content/Images/KYHBPA-Pics/Keeneland/4.jpg" style="background-image: inherit" />
+            </div>
+            <div class="item">
+                <img src="~/Content/Images/KYHBPA-Pics/Turfway-Park/9.jpg" style="background-image: inherit" />
+            </div>
         </div>
-        <div class="item">
-            <img src="~/Content/Images/KYHBPA-Pics/Ellis-Park/4.jpg" style="background-image: inherit" />
-        </div>
-        <div class="item">
-            <img src="~/Content/Images/KYHBPA-Pics/Keeneland/4.jpg" style="background-image: inherit" />
-        </div>
-        <div class="item">
-            <img src="~/Content/Images/KYHBPA-Pics/Turfway-Park/9.jpg" style="background-image: inherit" />
-        </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
     </div>
-
-    <!-- Carousel controls -->
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
 </div>
 
-
 @* What KYHBPA Does *@
-<div class="container-fluid">
+<div class="container-fluid body-content">
     <div class="row">
         <div style="margin: 4% 0" class="col-lg-11">
             <div class="col-xs-6">
@@ -144,6 +143,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <br />
     @* FB/Poll/Twitter Section *@
