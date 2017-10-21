@@ -2,35 +2,40 @@
 
 @helper Render(Post post, System.Web.Mvc.HtmlHelper html, bool isAdmin, bool showComments)
 {
-    <div class="postTitle"><a href="@Href("~/Posts/Details/" + post.ID)">@post.Title</a></div>
+    <div class="postTitle"><a href="@Href("~/Posts/Details/" + post.ID)"><h4>@post.Title</h4></a></div>
     <div class="postContainer col-md-12">
      <div class="postTabs">
-        <div class="dateTab col-xs-1">
-            <div class="month">@post.DateTime.ToString("MMM").ToUpper()</div>
-            <div class="day">@post.DateTime.ToString("dd")</div>
+        <div class="dateTab">
+            <div class="month"> @post.DateTime.ToString("MMM").ToUpper()</div>
+            <div class="day"> @post.DateTime.ToString("dd")</div>
         </div>
         <div class="commentsTab">
-            <a href="@Href("~/Posts/Details/" + post.ID + "#comments")">@post.Comments.Count</a>
+            <a href="@Href("~/Posts/Details/" + post.ID + "#comments")"><span class="glyphicon glyphicon-comment badge"> @post.Comments.Count </span></a>
         </div>
     </div>
     <div class="postContent col-md-12">
         <div class="postBody">@html.Raw(post.Body)</div>
         <div class="tagList">
+            <p class="glyphicon glyphicon-tags">  Tags: 
             @foreach (Tag tag in post.Tags)
             {
-                <span class="tag"><a href="@Href("~/Posts/Tags/" + tag.Name)">@tag.Name</a></span>
+                <span class="tag"><a href="@Href("~/Posts/Tags/" + tag.Name)"><span class="badge">@tag.Name</span></a></span>
             }
+            </p>
         </div>
             <div class="linklist">
             <!--Can be implmented later based on feedback-->
             </div>
          </div>
     </div>
-    if (User.IsInRole("admin"))
+    if (isAdmin)
     {
         <div class="postControlPanel">
-            <a href="@Href("~/Posts/Delete/" + post.ID)">Delete</a>
-            <a href="@Href("~/Posts/Edit/" + post.ID)">Edit</a>
+            <div class="btn-group">
+                <a href="@Href("~/Posts/Delete/" + post.ID)"class="btn btn-primary" role="button">Delete</a>
+                <a href="@Href("~/Posts/Edit/" + post.ID)"class="btn btn-primary" role="button">Edit</a>
+            </div>
+            
         </div>
     }
     if (showComments)
@@ -59,7 +64,7 @@
                 if (isAdmin)
                 {
                     <div class="commentControlPanel">
-                        <a href="@Href("~/Posts/DeleteComment/" + comment.ID)">Delete</a>
+                        <a href="@Href("~/Posts/DeleteComment/" + comment.ID)" class="btn btn-primary" role="button">Delete Comment</a>
                     </div>
                 }
             }
@@ -67,10 +72,18 @@
                 <div id="commentEditor">
                 <div id="commentPrompt">Leave a comment.</div>
                 <form action="@Href("~/Posts/Comment/" + post.ID)" method="post">
-                    <input type="text" id="commentNamePrompt" name="name" /> Name (required)<br />
-                    <input type="text" id="commentEmailPrompt" name="email" /> Email (optional)<br />
-                    <textarea id="commentBodyInput" name="body" rows="10" cols="60"></textarea><br />
-                    <input type="submit" id="commentSubmitInput" name="submit" value="Submit" />
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" required id="commentNamePrompt" class="form-control" name="name" placeholder="Name (Required)"/>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input type="text" id="commentEmailPrompt" class="form-control" name="email" placeholder="Email (Optional)"/>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="commentBodyInput" name="body" class="form-control" rows="10" cols="60" placeholder="Body"></textarea>
+                    </div>
+                        <input type="submit" class="btn btn-primary" id="commentSubmitInput" name="submit" value="Submit" />                   
                 </form>
             </div>
     }

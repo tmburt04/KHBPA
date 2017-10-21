@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PostID" Type="int" Nullable="false" />
           <Property Name="DateTime" Type="datetime" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
@@ -20,7 +20,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="DateTime" Type="datetime" Nullable="false" />
           <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
@@ -37,11 +37,13 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
         </EntityType>
         <Association Name="FK_Comments_Posts">
-          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Posts">
@@ -53,7 +55,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PostsTags_Post">
-          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PostsTags" Type="Self.PostsTags" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Posts">
@@ -131,7 +135,9 @@
           <NavigationProperty Name="Posts" Relationship="Self.PostsTags" FromRole="Tags" ToRole="Posts" />
         </EntityType>
         <Association Name="FK_Comments_Posts">
-          <End Role="Posts" Type="Self.Post" Multiplicity="1" />
+          <End Role="Posts" Type="Self.Post" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Posts">
@@ -143,7 +149,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="PostsTags">
-          <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+          <End Role="Posts" Type="Self.Post" Multiplicity="*" >
+          </End>
           <End Role="Tags" Type="Self.Tag" Multiplicity="*" />
         </Association>
         <EntityContainer Name="BlogModel" annotation:LazyLoadingEnabled="true">

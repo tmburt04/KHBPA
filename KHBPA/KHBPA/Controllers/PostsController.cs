@@ -79,7 +79,7 @@ namespace KHBPA.Controllers
         [ValidateInput(false)]
         public ActionResult Update(int? id, string title, string body, DateTime dateTime, string tags)
         {
-           if(!User.IsInRole("admin"))
+           if(!User.IsInRole("Admin"))
             {
                 return RedirectToAction("Index");
             }
@@ -107,7 +107,7 @@ namespace KHBPA.Controllers
 
         public ActionResult Delete (int id)
         {
-            if(User.IsInRole("admin"))
+            if(User.IsInRole("Admin"))
             {
                 Post post = GetPost(id);
                 model.Posts.Remove(post);
@@ -118,7 +118,7 @@ namespace KHBPA.Controllers
 
         public ActionResult DeleteComment(int id)
         {
-            if(User.IsInRole("admin"))
+            if(User.IsInRole("Admin"))
             {
                 Comment comment = model.Comments.Where(x => x.ID == id).First();
                 model.Comments.Remove(comment);

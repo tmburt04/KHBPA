@@ -2,12 +2,20 @@
 
 @{
     ViewBag.Title = "Details";
-    bool isAdmin = User.IsInRole("admin");
+    bool isAdmin = User.IsInRole("Admin");
 }
 
 @PostHelper.Render(Model, Html, isAdmin, true)
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<br />
+@if (isAdmin)
+{
+       <div class="btn-group">
+           <button type="button" class="btn btn-primary">@Html.ActionLink("Create new post", "Edit")</button>
+           <button type="button" class="btn btn-primary">@Html.ActionLink("Back to List", "Index")</button>
+       </div>
+}
+else
+{
+    <button type="button" class="btn btn-primary">@Html.ActionLink("Back to List", "Index")</button>
+ }

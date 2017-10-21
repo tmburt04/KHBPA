@@ -374,6 +374,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="App_Code\PostHelper.cshtml" />
     <EntityDeploy Include="Models\BlogModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BlogModel.Designer.cs</LastGenOutput>
@@ -381,7 +382,6 @@
     <Content Include="Models\BlogModel.edmx.diagram">
       <DependentUpon>BlogModel.edmx</DependentUpon>
     </Content>
-    <Content Include="App_Code\PostHelper.cshtml" />
     <None Include="Properties\PublishProfiles\trout.cis420.net - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
