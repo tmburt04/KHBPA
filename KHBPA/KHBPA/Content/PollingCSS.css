@@ -1,0 +1,23 @@
+﻿
+
+
+.input-wrap {
+    margin-bottom: 10px;
+}
+
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 20px auto 50px;
+    height: 34px;
+    width: 125px;
+    letter-spacing: 0.5px;
+    border: 0px solid;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+}
