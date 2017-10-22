@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -74,7 +75,7 @@ namespace KHBPA.Repositories
                 .OrderByDescending(p => p.PostedOn)
                 .Skip(pageNo * pageSize)
                 .Take(pageSize)
-                .Fetch(p => p.Category)
+                //.Fetch(p => p.Category)
                 .ToList();
 
             var postIds = posts.Select(p => p.ID).ToList();
@@ -82,7 +83,7 @@ namespace KHBPA.Repositories
             return _db.Post
                 .Where(p => postIds.Contains(p.ID))
                 .OrderByDescending(p => p.PostedOn)
-                .FetchMany(p => p.Tags)
+                //.FetchMany(p => p.Tags)
                 .ToList();
         }
 

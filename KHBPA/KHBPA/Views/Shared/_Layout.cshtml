@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -22,21 +22,20 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-              <li class="dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">About Us<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                      <li>@Html.ActionLink("About KHBPA", "About", "Home")</li>
-                      <li>@Html.ActionLink("Board Of Directors", "BoardOfDirectors", "Home")</li>
-                  </ul>
-              </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">About Us<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>@Html.ActionLink("About KHBPA", "About", "Home")</li>
+                <li>@Html.ActionLink("Board Of Directors", "BoardOfDirectors", "Home")</li>
+              </ul>
+            </li>
             @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
             <li>@Html.ActionLink("Resources", "index", "Resources")</li>
             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
             <li>@Html.ActionLink("News and Events", "Index", "News")</li>
-            <li>@Html.ActionLink("Admin", "Index", "UserManagement")</li>
             <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
-            <li>@Html.ActionLink("Admin", "Index", "Member")</li>
-            <li>@Html.ActionLink("Admin", "Index", "Member")</li>
+            <li>@Html.ActionLink("Admin", "Index", "UserManagement")</li>
+            <li><h4 style="padding-top: 5%"><strong><a href="http://paypal.com" target="_blank" rel="nofollow"><img src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" alt="" /></a></strong></h4></li>
           </ul>
           @Html.Partial("_LoginPartial")
         </div>
@@ -48,8 +47,8 @@
       <footer>
 
         <div style="overflow: auto; margin: 0 5%; padding: 0">
-          <span>&copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association</span>
-          <div id="paypal-button" style="float: right; margin: 0 2% 2% 2%; padding: 0"></div>
+          <span>&copy; @DateTime.Now.Year - KY HBPA</span>
+          <h4 style="float: right; margin: 0 2% 2% 2%; padding: 0"><strong><a href="http://paypal.com/" target="_blank" rel="nofollow"><img src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" alt="" /></a></strong></h4>
         </div>
 
       </footer>
@@ -61,21 +60,3 @@
   </div>
 </body>
 </html>
-
-<script>
-  paypal.Button.render({
-
-    env: 'production', // Or 'sandbox',
-
-    commit: true, // Show a 'Pay Now' button
-
-    payment: function () {
-      // Set up the payment here
-    },
-
-    onAuthorize: function (data, actions) {
-      // Execute the payment here
-    }
-
-  }, '#paypal-button');
-</script>
