@@ -25,14 +25,14 @@
         @if (isPreviousLinkVisible)
         {
             <div class="previous">
-            <a id="previousLink" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber - 1))">&lt; Previous Page</a>
+            <a id="previousLink" class="btn btn-primary" role="button" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber - 1))">&lt; Previous Page</a>
             </div>
         }
 
         @if (isNextLinkVisible)
         {
             <div class="next">
-            <a id="nextLink" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber + 1))">Next Page &gt;</a>
+            <a id="nextLink" class="btn btn-primary" role="button" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber + 1))">Next Page &gt;</a>
             </div>
         }
         <p>
