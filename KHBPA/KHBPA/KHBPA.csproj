@@ -313,6 +313,10 @@
     <Compile Include="Migrations\201710240233173_AddedLocationToEvent.Designer.cs">
       <DependentUpon>201710240233173_AddedLocationToEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710240308030_TylerFixedBlogs.cs" />
+    <Compile Include="Migrations\201710240308030_TylerFixedBlogs.Designer.cs">
+      <DependentUpon>201710240308030_TylerFixedBlogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlogModel.Context.cs">
@@ -454,6 +458,7 @@
     <Content Include="Models\BlogModel.edmx.diagram">
       <DependentUpon>BlogModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\CIS420Trout.pubxml" />
     <None Include="Properties\PublishProfiles\CIS420_Trout.pubxml" />
     <None Include="Properties\PublishProfiles\trout.cis420.net - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -802,6 +807,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710240233173_AddedLocationToEvent.resx">
       <DependentUpon>201710240233173_AddedLocationToEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710240308030_TylerFixedBlogs.resx">
+      <DependentUpon>201710240308030_TylerFixedBlogs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

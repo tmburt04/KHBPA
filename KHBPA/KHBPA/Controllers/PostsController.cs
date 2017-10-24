@@ -11,7 +11,7 @@ namespace KHBPA.Controllers
 {
     public class PostsController : Controller
     {
-        private BlogModel model = new BlogModel();
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
         private const int PostsPerPage = 4;
         private const int PostsPerFeed = 25;
 
@@ -19,21 +19,20 @@ namespace KHBPA.Controllers
         public ActionResult Index(int? id)
         {
             int pageNumber = id ?? 0;
-            IEnumerable<Post> posts =
-                (from post in model.Posts
-                where post.DateTime < DateTime.Now
-                orderby post.DateTime descending
-                select post).Skip(pageNumber * PostsPerPage).Take(PostsPerPage + 1);
+ 
+            var posts = db.Posts.OrderByDescending(p => p.DateTime).Skip(pageNumber * PostsPerPage).ToList();
+
             ViewBag.IsPreviousLinkVisible = pageNumber > 0;
             ViewBag.IsNextLinkVisible = posts.Count() > PostsPerPage;
             ViewBag.PageNumber = pageNumber;
+
             return View(posts.Take(PostsPerPage));
         }
         //Make an RSS feed of our blog
         public ActionResult RSS()
         {
             IEnumerable<SyndicationItem> posts =
-                (from post in model.Posts
+                (from post in db.Posts
                  where post.DateTime < DateTime.Now
                  orderby post.DateTime descending
                  select post).Take(PostsPerFeed).ToList().Select(x => GetSyndicationItem(x));
@@ -64,8 +63,8 @@ namespace KHBPA.Controllers
             comment.Name = name;
             comment.Email = email;
             comment.Body = body;
-            model.Comments.Add(comment);
-            model.SaveChanges();
+            db.Comments.Add(comment);
+            db.SaveChanges();
             return RedirectToAction("Details", new { id = id });
         }
         
@@ -98,9 +97,9 @@ namespace KHBPA.Controllers
             }
             if(!id.HasValue)
             {
-               model.Posts.Add(post);
+               db.Posts.Add(post);
             }            
-            model.SaveChanges();
+            db.SaveChanges();
             return RedirectToAction("Details", new { id = post.ID });
 
         }
@@ -110,8 +109,8 @@ namespace KHBPA.Controllers
             if(User.IsInRole("Admin"))
             {
                 Post post = GetPost(id);
-                model.Posts.Remove(post);
-                model.SaveChanges();
+                db.Posts.Remove(post);
+                db.SaveChanges();
             }
             return RedirectToAction("Index");
         }
@@ -120,9 +119,9 @@ namespace KHBPA.Controllers
         {
             if(User.IsInRole("Admin"))
             {
-                Comment comment = model.Comments.Where(x => x.ID == id).First();
-                model.Comments.Remove(comment);
-                model.SaveChanges();
+                Comment comment = db.Comments.Where(x => x.ID == id).First();
+                db.Comments.Remove(comment);
+                db.SaveChanges();
             }
             return RedirectToAction("Index");
         }
@@ -142,13 +141,13 @@ namespace KHBPA.Controllers
         private Post GetPost(int? id)
         {
 
-            return id.HasValue ? model.Posts.Where(x => x.ID == id).First() : new Post() { ID = -1 };
+            return id.HasValue ? db.Posts.Where(x => x.ID == id).First() : new Post() { ID = -1 };
                      
         }
 
         private Tag GetTag(string tagName)
         {
-            return model.Tags.Where(x => x.Name == tagName).FirstOrDefault() ?? new Tag() { Name = tagName };
+            return db.Tags.Where(x => x.Name == tagName).FirstOrDefault() ?? new Tag() { Name = tagName };
         }
 
     }
