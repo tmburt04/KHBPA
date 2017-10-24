@@ -22,12 +22,15 @@ namespace KHBPA.Controllers
             sched.EnableDataprocessor = true;
             sched.Highlighter.Enable("highlight_section");
             sched.Lightbox.Add(new LightboxText("location", "Location") { Height = 50 });
+            var map = new MapView { ApiKey = "" };
+            sched.Views.Add(map);
             sched.Lightbox.AddDefaults();
             sched.Config.first_hour = 5;
             if (!User.IsInRole("Admin"))
             {
                 sched.Config.readonly_form = true;
             }
+            sched.InitialView = "month";
             return View(sched);
         }
 
