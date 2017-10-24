@@ -2,13 +2,16 @@
 
 @helper Render(Post post, System.Web.Mvc.HtmlHelper html, bool isAdmin, bool showComments)
 {
+    <link rel="stylesheet" href="~/Content/CalendarDate.css" type="text/css" />
     <div class="postTitle"><a href="@Href("~/Posts/Details/" + post.ID)"><h4>@post.Title</h4></a></div>
     <div class="postContainer col-md-12">
      <div class="postTabs">
-        <div class="dateTab">
-            <div class="month"> @post.DateTime.ToString("MMM").ToUpper()</div>
-            <div class="day"> @post.DateTime.ToString("dd")</div>
-        </div>
+         <div class="calendarDate">
+             <em>@post.DateTime.DayOfWeek</em>
+             <strong>@post.DateTime.Month</strong>
+             <span>@post.DateTime.Day</span>
+         </div><br />
+        
         <div class="commentsTab">
             <a href="@Href("~/Posts/Details/" + post.ID + "#comments")"><span class="glyphicon glyphicon-comment badge"> @post.Comments.Count </span></a>
         </div>

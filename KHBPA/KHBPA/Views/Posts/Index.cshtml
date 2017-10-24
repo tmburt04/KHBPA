@@ -7,6 +7,9 @@
     bool isNextLinkVisible = ViewBag.IsNextLinkVisible ?? false;
     bool isAdmin = User.IsInRole("Admin") ? true : false;
 }
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
 <div class="container">
 <div class="row" style="margin: 3% 0">
     <div class=" col-sm-10 col-sm-offset-1" style="background-color: #18bc9c !important;">
@@ -22,14 +25,14 @@
         @if (isPreviousLinkVisible)
         {
             <div class="previous">
-            <a id="previousLink" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber - 1))">&lt; Previous Page</a>
+            <a id="previousLink" class="btn btn-primary" role="button" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber - 1))">&lt; Previous Page</a>
             </div>
         }
 
         @if (isNextLinkVisible)
         {
             <div class="next">
-            <a id="nextLink" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber + 1))">Next Page &gt;</a>
+            <a id="nextLink" class="btn btn-primary" role="button" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber + 1))">Next Page &gt;</a>
             </div>
         }
         <p>
