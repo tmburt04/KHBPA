@@ -309,6 +309,10 @@
     <Compile Include="Migrations\201710212211028_EventTable.Designer.cs">
       <DependentUpon>201710212211028_EventTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710240233173_AddedLocationToEvent.cs" />
+    <Compile Include="Migrations\201710240233173_AddedLocationToEvent.Designer.cs">
+      <DependentUpon>201710240233173_AddedLocationToEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlogModel.Context.cs">
@@ -791,9 +795,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709292215006_add-migrations News.resx">
       <DependentUpon>201709292215006_add-migrations News.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710212211028_EventTable.resx">
       <DependentUpon>201710212211028_EventTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710240233173_AddedLocationToEvent.resx">
+      <DependentUpon>201710240233173_AddedLocationToEvent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

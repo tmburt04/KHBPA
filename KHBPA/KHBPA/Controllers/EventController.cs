@@ -30,6 +30,11 @@ namespace KHBPA.Controllers
             {
                 sched.Config.readonly_form = true;
             }
+            else
+            {
+                sched.Lightbox.Add(new LightboxText("lat", "Lat") { Height = 50 });
+                sched.Lightbox.Add(new LightboxText("lng", "Long") { Height = 50 });
+            }
             sched.InitialView = "month";
             return View(sched);
         }
@@ -38,7 +43,7 @@ namespace KHBPA.Controllers
         {
             return (new SchedulerAjaxData(
                 new ApplicationDbContext().Event
-                .Select(e => new { e.id, e.text, e.start_date, e.end_date, e.location })
+                .Select(e => new { e.id, e.text, e.start_date, e.end_date, e.location, e.lat, e.lng })
                 )
                 );
         }

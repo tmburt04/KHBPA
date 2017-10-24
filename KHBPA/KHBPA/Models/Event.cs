@@ -12,5 +12,7 @@ namespace KHBPA.Models
         public DateTime start_date { get; set; }
         public DateTime end_date { get; set; }
         public string location { get; set; }
+        public float lat { get; set; }
+        public float lng { get; set; }
     }
 }
