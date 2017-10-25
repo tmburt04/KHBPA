@@ -38,5 +38,13 @@ namespace KHBPA.Models
         public DbSet<Resources> Resources { get; set; }
 
         public DbSet<News> News { get; set; }
+
+        public DbSet<Event> Event { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
+
+        public DbSet<Post> Posts { get; set; }
+
+        public DbSet<Tag> Tags { get; set; }
     }
 }

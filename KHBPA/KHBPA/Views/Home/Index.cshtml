@@ -1,3 +1,5 @@
+﻿<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -5,236 +7,221 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-@*<script src="~/Content/CarouselJS.js"></script>*@
+<link rel=" stylesheet" href="~/Content/CarouselCSS.css" type="text/css" />
+<link rel="stylesheet" href="~/Content/Navibar-CSS.css" type="text/css" />
+<link rel="stylesheet" href="~/Content/PollingCSS.css" type="text/css" />
 
+@*Facebook Script*@
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Carousel indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <!-- Wrapper for carousel items -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active" style="background-image: url('http://placehold.it/1900x1080')">
-            
+@*Carousel*@
+<div class="container-fluid nopadding">
+    <div id="myCarousel" class="carousel slide " data-ride="carousel" style="margin-top:0; border: 0;">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="~/Content/Images/KYHBPA-Pics/Churchill/12.jpg" style="background-image: inherit" />
+            </div>
+            <div class="item">
+                <img src="~/Content/Images/KYHBPA-Pics/Ellis-Park/4.jpg" style="background-image: inherit" />
+            </div>
+            <div class="item">
+                <img src="~/Content/Images/KYHBPA-Pics/Keeneland/4.jpg" style="background-image: inherit" />
+            </div>
+            <div class="item">
+                <img src="~/Content/Images/KYHBPA-Pics/Turfway-Park/9.jpg" style="background-image: inherit" />
+            </div>
         </div>
-        @*<div class="item">
-            <img src="https://imgur.com/WOt2XRS.jpg" alt="Second Slide">
-
-        </div>
-        <div class="item">
-            <img src="https://imgur.com/TKqtNLA.jpg" alt="Third Slide">
-
-        </div>
-        <div class="item">
-            <img src="https://imgur.com/nRwRm4N.jpg" alt="Fourth Slide">
-        </div>*@
+        <!-- Carousel controls -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
     </div>
-
-    <!-- Carousel controls -->
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
 </div>
 
-   @* About KYHBPA *@
-<div class="container">
-
-
-    <div class="row">
-        <div style="margin: 4% 0" class="col-lg-11">
-            <div class="col-xs-6">
-                <div class="col-xs-5">
-                    <div class="text-center col-md-12">
-                        <i class="d-block mx-auto fa fa-3x fa-ship"></i>
-                    </div>
-                    <div class="text-center col-md-12">
+@*What KyHBPA Does*@
+<div class="container-fluid body-content">
+    @*First Row of Icons and Text**@
+    <div class="row" style="margin-bottom: -50px !important" >
+        <div style="margin: 5% 0" class="col-md-6">
+            <div class="row">
+                    <div class="text-center col-md-4">
+                        <i class="d-block mx-auto fa fa-3x fa-handshake-o"></i>
                         <h3 class="mb-3 text-primary">
                             <b>Horse Race Negotiation</b>
                         </h3>
                     </div>
-                </div>
-                <div class="col-xs-7">
-                    <p class="my-1">The HBPA represents owners and trainers in negotiating sessions with each race track regarding purse structure, equitable share of simulcast revenues, overall track safety, sanitation and security. </p>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="col-xs-5">
-                    <div class="text-center col-md-12">
-                        <i class="d-block mx-auto fa fa-3x fa-paper-plane-o"></i>
+                    <div class="col-md-8">
+                        <p>The HBPA represents owners and trainers in negotiating sessions with each race track regarding purse structure, equitable share of simulcast revenues, overall track safety, sanitation and security. </p>
                     </div>
-                    <div class="text-center col-md-12">
+            </div>
+        </div>
+        <div style="margin: 5% 0" class="col-md-6">
+            <div class="row">
+                    <div class="text-center col-md-4">
+                        <i class="d-block mx-auto fa fa-3x fa-paper-plane-o"></i>
                         <h3 class="mb-3 text-primary">
                             <b>Insurance and Resources</b>
                         </h3>
                     </div>
-                </div>
-                <div class="col-xs-7">
-                    <p class="my-1">The HBPA provides benevolence to horsemen in need, education and recreation programs to the backstretch, various insurance packages which include – free of charge to members – Fire and Disaster Insurance and Claiming Insurance.&nbsp;</p>
-                </div>
-            </div>
-        </div>
-        <div style="margin: 4% 0" class="col-lg-11">
-            <div class="col-xs-6">
-                <div class="col-xs-5">
-                    <div class="text-center col-md-12">
-                        <i class="d-block mx-auto fa fa-3x fa-heartbeat"></i>
-                    </div>
-                    <div class="text-center col-md-12">
-                        <h3 class="mb-3 text-primary">
-                            <b>Healthcare</b>
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-xs-7">
-                    <p class="my-1">The HBPA works in conjunction with the Chaplaincy Program , and the Kentucky Racing Health and Welfare Fund to provide support and benefits for Horsemen. </p>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="col-xs-5">
-                    <div class="text-center col-md-12">
-                        <i class="d-block mx-auto fa fa-3x fa-spinner"></i>
-                    </div>
-                    <div class="text-center col-md-12">
-                        <h3 class="mb-3 text-primary">
-                            <b>Research</b>
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-xs-7">
-                    <p class="my-1">The HBPA supports scientific research and marketing initiatives on a regional and national level to help promote interest in Thoroughbred racing. </p>
-                </div>
-            </div>
-        </div>
-        <div style="margin: 4% 0" class="col-xs-11">
-            <div class="col-xs-6 col-lg-offset-3">
-                <div class="col-xs-5">
-                    <div class="text-center col-md-12">
-                        <i class="d-block mx-auto fa fa-3x fa-users"></i>
-                    </div>
-                    <div class="col-xs-12">
-                        <h3 class="mb-3 text-primary">
-                            <b>Horse Legislation</b>
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-xs-7">
-                    <p class="my-1">
-                        The HBPA is at the forefront in litigation and legislation on issues involving Horsemen’s rights with regards to Interstate Simulcasting, Proprietary Rights, Casino Gambling, Therapeutic Medication, Sports Betting and many other areas of
-                        concern to Horsemen.
-                    </p>
+                <div class="col-md-8">
+                    <p>The HBPA provides benevolence to horsemen in need, education and recreation programs to the backstretch, various insurance packages which include &#8211 free of charge to members &#8211 Fire and Disaster Insurance and Claiming Insurance.&nbsp;</p>
                 </div>
             </div>
         </div>
     </div>
-    <br />
-    @* Connect *@
-    <div class="container">
-        <div class="row col-md-12" style="background-color: #18bc9c !important;">
-            <h1 class="display-3 text-primary text-uppercase">Connect</h1>
-        </div>
-        <br />
-        <div class="row well col-md-12" style="background: rgba(236, 240, 241, 0.85); border-radius: 5px; box-shadow: rgba(175,175,175, 0.5) 3px 3px 5px">
-            <div class="p-5 col-md-4">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <h3 class="mb-4">Poll</h3>
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        Do you favor or oppose more restrictions on pre-race medicine testing?
-                                    </h4>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios">
-                                                    Favor
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios">
-                                                    Oppose
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios">
-                                                    No opinion
-                                                </label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-primary btn-sm">
-                                        Vote
-                                    </button>
-                                    <a href="#">View Result</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="p-5 col-md-4">
-                <h3 class="mb-4">Contact Us</h3>
-                <p>
-                    <a href="tel: 502-363-1077" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-phone"></i> 502-363-1077</a>
-                </p>
-                <p>
-                    <a href="kentuckyhbpa@gmail.com" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i> kentuckyhbpa@gmail.com</a>
-                </p>
-                <p>
-                    <a href="https://goo.gl/maps/AUq7b9W7yYJ2" class="text-white" target="blank">
-                        <i class="fa d-inline mr-3 fa-map-marker text-secondary"></i>&nbsp; 3729 S. Fourth St.&nbsp;
-                        <br>&nbsp; &nbsp; &nbsp;Louisville, KY 40214
-                        <br>
-                    </a>
-                </p>
-            </div>
-
-            <div class="p-5 col-md-4">
-                <h3>Stay Informed</h3>
-                <form class="my-4">
-                    <fieldset class="form-group">
-                        <label for="newsletterEmail">Sign up for our monthly newsletter!</label>
-                        <input type="email" class="form-control" id="newsletterEmail" placeholder="Enter email">
-                    </fieldset>
-                    <button type="submit" class="btn btn-outline-light">Submit</button>
-                </form>
-                <div style="text-align: right">
-                    <h3 class="mt-5">
-                        Social Media
-                        <br>
+    @*Second Row of Icons and Text**@
+    <div class="row" style="margin-bottom: -50px !important" >
+        <div style="margin: 5% 0" class="col-md-6">
+            <div class="row">
+                <div class="text-center col-md-4">
+                    <i class="d-block mx-auto fa fa-3x fa-heartbeat"></i>
+                    <h3 class="mb-3 text-primary">
+                        <b>Healthcare</b>
                     </h3>
-                    <div class="align-self-center col-12 my-4">
-                        <a href="https://www.facebook.com" target="blank"><i class="fa fa-facebook d-inline mr-3 text-primary fa-2x"></i></a>
-                        <a href="https://twitter.com" target="blank"><i class="fa fa-twitter d-inline mx-3 text-primary fa-2x"></i></a>
-                        <a href="https://www.instagram.com" target="blank"><i class="fa fa-instagram d-inline mx-3 text-primary fa-2x"></i></a>
-                    </div>
                 </div>
+                <div class="col-md-8">
+                    <p>The HBPA works in conjunction with the Chaplaincy Program, and the Kentucky Racing Health and Welfare Fund to provide support and benefits for Horsemen. </p>
+                </div>
+
+            </div>
+        </div>
+        <div style="margin: 5% 0" class="col-md-6">
+            <div class="row">
+                <div class="text-center col-md-4">
+                    <i class="d-block mx-auto fa fa-3x fa-spinner"></i>
+                    <h3 class="mb-3 text-primary">
+                        <b>Research</b>
+                    </h3>
+                </div>
+                <div class="col-md-8">
+                    <p>The HBPA supports scientific research and marketing initiatives on a regional and national level to help promote interest in Thoroughbred racing. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Third Row of Icons and Text**@
+    <div class="row" style="margin-bottom: -50px !important" >
+        <div style="margin: 5% 0"class="col-md-6">
+            <div class="row">
+                <div class="text-center col-md-4">
+                    <i class="d-block mx-auto fa fa-3x fa-users"></i>
+                    <h3 class="mb-3 text-primary">
+                        <b>Horse Legislation</b>
+                    </h3>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                        The HBPA is at the forefront in litigation and legislation on issues involving Horsemen&#39;s rights with regards to Interstate Simulcasting, Proprietary Rights, Casino Gambling, Therapeutic Medication, Sports Betting and many other areas of
+                        concern to Horsemen.
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
+<br />
+@* FB/Poll/Twitter Section *@
+<div class="container-fluid">
+    <div class="row well col-md-12" style="background: rgba(249, 249, 249, 0.5);">
+        @*Facebook*@
+        <div class="col-md-4">
+            <div class="fb-page" data-href="https://www.facebook.com/kyhbpa" data-tabs="timeline" data-width="300" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/kyhbpa" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/kyhbpa">Kentucky HBPA</a></blockquote></div>
+        </div>
+
+        @*Polls*@
+        <div class="col-md-4">
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSdqelNNtPyAMdC1PCM0RzNQPV8lwY0FvhoZWFGfICrlacJE8w/formResponse">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Do you favor or oppose more restrictions on pre-race medicine testing?
+                        </h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="input-wrap">
+                            <input type="radio" name="entry.1275145631" id="c1" value="Favor" />
+                            <label for="c1">Favor</label>
+                        </div>
+
+                        <div class="input-wrap">
+                            <input type="radio" name="entry.1275145631" id="c2" value="Neutral" />
+                            <label for="c2">Neutral</label>
+                        </div>
+
+                        <div class="input-wrap">
+                            <input type="radio" name="entry.1275145631" id="c3" value="Oppose" />
+                            <label for="c3">Oppose</label>
+                        </div>
+                    </div>
+
+                    <input class="button" type="submit" value="Submit">
+
+                </div>
+            </form>
+
+            <form action="mailto:admin@email.com" method="POST">
+                <fieldset class="form-group">
+                    <label for="newsletterEmail">Sign up for our monthly newsletter!</label>
+                    <input type="email" class="form-control" id="newsletterEmail" placeholder="Enter email">
+                </fieldset>
+                <button type="submit" class="btn btn-outline-light">Submit</button>
+            </form>
+
+        </div>
+
+        @*Twitter*@
+        <div class="col-md-4">
+            <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/KyHBPA?ref_src=twsrc%5Etfw">Tweets by KyHBPA</a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
     </div>
-  </div>
+</div>
+<br />
+@*Partners Section*@
+<div class="container-fluid">
+    <div class="row col-md-12" style="background: rgba(249, 249, 249, 0.5);">
+        <center><h3>Our Partners</h3></center>
+
+        <div class="col-md-3" style="align-content: center">
+            <a href="http://www.churchilldowns.com">
+                <img src="~/Content/Images/Churchill-Logo-TP.png" />
+            </a>
+        </div>
+        <div class="col-md-3" style="align-content:center">
+            <a href="http://www.ellisparkracing.com">
+                <img src="~/Content/Images/Ellis-Park-Logo-TP.png" />
+            </a>
+        </div>
+        <div class="col-md-3" style="align-content:center">
+            <a href="http://www.keeneland.com">
+                <img src="~/Content/Images/Keeneland-Logo-TP.png" />
+            </a>
+        </div>
+        <div class="col-md-3" style="align-content:center">
+            <a href="http://www.turfway.com">
+                <img src="~/Content/Images/Turfway-Logo-TP.png" />
+            </a>
+        </div>
+    </div>
 </div>

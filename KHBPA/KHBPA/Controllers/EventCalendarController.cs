@@ -21,17 +21,14 @@ namespace KHBPA.Controllers
 
         public ActionResult Index()
         {
-            //try
-            //{
+           
             var scheduler = new DHXScheduler(this); //initializes dhtmlxScheduler
             scheduler.LoadData = true;// allows loading data
             scheduler.EnableDataprocessor = true;// enables DataProcessor in order to enable implementation CRUD operations
-                                                 //var form = scheduler.Lightbox.SetExternalLightboxForm("Views/EventCalendar/_LightBox");
-
 
             scheduler.Lightbox.Add(new LightboxText("location", "Location") { Height = 50 });
 
-
+            scheduler.Highlighter.Enable("highlight_section");
             scheduler.Lightbox.AddDefaults();
             scheduler.Calendars.AttachMiniCalendar();
             scheduler.Config.first_hour = 5;
@@ -42,8 +39,11 @@ namespace KHBPA.Controllers
 
             //scheduler.Views.Add(map);
 
-
-            return View(scheduler);
+            if (!User.IsInRole("Admin"))
+            {
+                scheduler.Config.readonly_form = true;
+            }
+                return View(scheduler);
         }
         public ActionResult Data()
         {//events for loading to scheduler
@@ -56,6 +56,7 @@ namespace KHBPA.Controllers
                     id = ev.ID,
                     start_date = ev.EventStartDate.ToString(),
                     end_date = ev.EventEndDate.ToString(),
+                    text=ev.EventDescription,
                     location=ev.EventLocation
                 };
                 formatedEvents.Add(formatingEvents);
