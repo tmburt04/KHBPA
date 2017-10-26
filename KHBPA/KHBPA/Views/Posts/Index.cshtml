@@ -1,0 +1,49 @@
+﻿@using KHBPA.Models;
+@model IEnumerable<Post>
+
+@{
+    ViewBag.Title = "KHBPA Blog";
+    bool isPreviousLinkVisible = ViewBag.IsPreviousLinkVisible ?? false;
+    bool isNextLinkVisible = ViewBag.IsNextLinkVisible ?? false;
+    bool isAdmin = User.IsInRole("Admin") ? true : false;
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
+<div class="container">
+<div class="row" style="margin: 3% 0">
+    <div class=" col-sm-10 col-sm-offset-1" style="background-color: #18bc9c !important;">
+        <h1 class="display-3 text-primary text-uppercase">@ViewBag.Title</h1>
+    </div>
+    <div class="well col-sm-10 col-sm-offset-1" style="background: rgba(236, 240, 241, 0.85); border-radius: 5px; box-shadow: rgba(175,175,175, 0.5) 3px 3px 5px">
+       
+        @foreach (Post post in Model)
+        {
+            @PostHelper.Render(post, Html, isAdmin, false)
+        }
+
+        @if (isPreviousLinkVisible)
+        {
+            <div class="previous">
+            <a id="previousLink" class="btn btn-primary" role="button" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber - 1))">&lt; Previous Page</a>
+            </div>
+        }
+
+        @if (isNextLinkVisible)
+        {
+            <div class="next">
+            <a id="nextLink" class="btn btn-primary" role="button" href="@Href("~/Posts/Index/" + (ViewBag.PageNumber + 1))">Next Page &gt;</a>
+            </div>
+        }
+        <p>
+            @*Html.ActionLink("RSS Feed", "RSS")*@
+            <br />
+            @if (isAdmin)
+            {
+                <button type="button" class="btn btn-primary">@Html.ActionLink("Create new post", "Edit")</button>
+            }
+        </p>
+    </div>
+</div>
+
+</div>

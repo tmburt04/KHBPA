@@ -39,10 +39,12 @@ namespace KHBPA.Models
 
         public DbSet<News> News { get; set; }
 
-        public DbSet<Post> Post { get; set; }
+        public DbSet<Event> Event { get; set; }
 
-        public DbSet<Category> Category { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
-        public DbSet<Tag> Tag { get; set; }
+        public DbSet<Post> Posts { get; set; }
+
+        public DbSet<Tag> Tags { get; set; }
     }
 }

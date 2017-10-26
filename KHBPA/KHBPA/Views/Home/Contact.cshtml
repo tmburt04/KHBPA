@@ -2,6 +2,13 @@
     ViewBag.Title = "Contact";
 }
 
+<head>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
+</head>
+
 <div class="container">
   <div class="row" style="margin: 3% 0">
     <div class=" col-sm-8 col-lg-offset-2" style="background-color: #18bc9c !important;">
@@ -19,8 +26,43 @@
             <tr><th><font color=black>Phone: 502-363-1077</font></th>
             <tr><th><font color=black>OR EMAIL US THROUGH OUR WEBSITE</font></th>
           </table>
+            <style>
+                #map {
+                    height: 400px;
+                    width: 100%;
+                }
+            </style>
+            <h3>Map</h3>
+            <div id="map"></div>
+            <script>
+                function initMap() {
+                    var KHBPA = { lat: 38.202796, lng: -85.765716 };
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 13,
+                        center: KHBPA                       
+                    });
+                    var marker = new google.maps.Marker({
+                        position: KHBPA,
+                        map: map,
+                        title: 'KHBPA',
+                        url: "http://www.google.com"                                                
+                    });                                        
+                    
+
+                    $('#map').click(function () {
+                        window.open('https://www.google.com/maps/dir//Kentucky+HBPA,+3729+S+4th+St,+Louisville,+KY+40214');
+                    });
+                    
+                }
+                
+            </script>           
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBum-emU4mSkyGcdEO3Pvljibm8VlI05L4&callback=initMap">
+            </script>
+                                                                       
+    
         </div>
-        <form class="col-md-6" action="" method="POST">
+        <form class="col-md-6" action="mailto:agudgel489@gmail.com" method="POST" enctype="multipart/form-data">
           <div class="panel-body">
             <div class="form-group">
               <div class="input-group">
@@ -48,7 +90,7 @@
             </div>
             <div class="col-md-12">
               <button type="submit" class="btn btn-info pull-right">Send <span class="glyphicon glyphicon-send"></span></button>
-              <button type="reset" value="Reset" name="reset" class="btn">Reset <span class="glyphicon glyphicon-refresh"></span></button>
+              <button type="reset" value="Reset" name="reset" class="btn">Reset <span class="glyphicon glyphicon-refresh"></span></button>              
             </div>
           </div>
         </form>

@@ -1,0 +1,93 @@
+﻿@using KHBPA.Models;
+
+@helper Render(Post post, System.Web.Mvc.HtmlHelper html, bool isAdmin, bool showComments)
+{
+    <link rel="stylesheet" href="~/Content/CalendarDate.css" type="text/css" />
+    <div class="postTitle"><a href="@Href("~/Posts/Details/" + post.ID)"><h4>@post.Title</h4></a></div>
+    <div class="postContainer col-md-12">
+     <div class="postTabs">
+         <div class="calendarDate">
+             <em>@post.DateTime.DayOfWeek</em>
+             <strong>@post.DateTime.Month</strong>
+             <span>@post.DateTime.Day</span>
+         </div><br />
+        
+        <div class="commentsTab">
+            <a href="@Href("~/Posts/Details/" + post.ID + "#comments")"><span class="glyphicon glyphicon-comment badge"> @post.Comments.Count<br/> </span></a>
+        </div>
+    </div>
+    <div class="postContent col-md-12">
+        <div class="postBody">@html.Raw(post.Body)</div>
+        <div class="tagList">
+            <p class="glyphicon glyphicon-tags">  Tags: 
+            @foreach (Tag tag in post.Tags)
+            {
+                <span class="tag"><a href="@Href("~/Posts/Tags/" + tag.Name)"><span class="badge"> @tag.Name </span></a></span>
+            }
+            </p>
+        </div>
+            <div class="linklist">
+            <!--Can be implmented later based on feedback-->
+            </div>
+         </div>
+    </div>
+    if (isAdmin)
+    {
+        <div class="postControlPanel">
+            <div class="btn-group">
+                <a href="@Href("~/Posts/Delete/" + post.ID)"class="btn btn-primary" role="button">Delete</a>
+                <a href="@Href("~/Posts/Edit/" + post.ID)"class="btn btn-primary" role="button">Edit</a>
+            </div>
+            
+        </div>
+    }
+    if (showComments)
+    {
+        <div id="commentContainer" class="col-sm-12 col-lg-3">
+            <a id="comments"></a>
+            @foreach (Comment comment in post.Comments.OrderBy(x => x.DateTime))
+            {
+                <div class="comment">
+                    <div class="commentName">
+                        @if (!string.IsNullOrWhiteSpace(comment.Email))
+                        {
+                            <a href="mailto:@comment.Email">@comment.Name</a>
+                        }
+                        else
+                        {
+                            @comment.Name;
+                        }
+                    </div>
+                    said:
+                    <div class="commentBody">
+                        @html.Raw(html.Encode(comment.Body).Replace("\n", "<br/>"))
+                    </div>
+                    <div class="commentTime">at @comment.DateTime.ToString("HH:mm") on @comment.DateTime.ToString("yyyy/mm/dd")</div>
+                </div>
+                if (isAdmin)
+                {
+                    <div class="commentControlPanel col-sm-12 col-lg-3">
+                        <a href="@Href("~/Posts/DeleteComment/" + comment.ID)" class="btn btn-primary" role="button">Delete Comment</a>
+                    </div>
+                }
+            }
+          </div>
+                <div id="commentEditor">
+                <div id="commentPrompt">Leave a comment.</div>
+                <form action="@Href("~/Posts/Comment/" + post.ID)" method="post">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" required id="commentNamePrompt" class="form-control" name="name" placeholder="Name (Required)"/>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input type="text" id="commentEmailPrompt" class="form-control" name="email" placeholder="Email (Optional)"/>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="commentBodyInput" name="body" class="form-control" rows="10" cols="60" placeholder="Body"></textarea>
+                    </div>
+                        <input type="submit" class="btn btn-primary" id="commentSubmitInput" name="submit" value="Submit" />                   
+                </form>
+            </div>
+    }
+}
