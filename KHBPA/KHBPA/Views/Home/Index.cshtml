@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <link rel=" stylesheet" href="~/Content/CarouselCSS.css" type="text/css" />
-<link rel="stylesheet" href="~/Content/Navibar-CSS.css" type="text/css" />
-<link rel="stylesheet" href="~/Content/PollingCSS.css" type="text/css" />
+<script src="//assets.juicer.io/embed.js" type="text/javascript"></script>
+<link href="//assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
 
 @*Facebook Script*@
 <div id="fb-root"></div>
@@ -60,28 +60,28 @@
 @*What KyHBPA Does*@
 <div class="container-fluid body-content">
     @*First Row of Icons and Text**@
-    <div class="row" style="margin-bottom: -50px !important" >
+    <div class="row" style="margin-bottom: -50px !important">
         <div style="margin: 5% 0" class="col-md-6">
             <div class="row">
-                    <div class="text-center col-md-4">
-                        <i class="d-block mx-auto fa fa-3x fa-handshake-o"></i>
-                        <h3 class="mb-3 text-primary">
-                            <b>Horse Race Negotiation</b>
-                        </h3>
-                    </div>
-                    <div class="col-md-8">
-                        <p>The HBPA represents owners and trainers in negotiating sessions with each race track regarding purse structure, equitable share of simulcast revenues, overall track safety, sanitation and security. </p>
-                    </div>
+                <div class="text-center col-md-4">
+                    <i class="d-block mx-auto fa fa-3x fa-handshake-o"></i>
+                    <h3 class="mb-3 text-primary">
+                        <b>Horse Race Negotiation</b>
+                    </h3>
+                </div>
+                <div class="col-md-8">
+                    <p>The HBPA represents owners and trainers in negotiating sessions with each race track regarding purse structure, equitable share of simulcast revenues, overall track safety, sanitation and security. </p>
+                </div>
             </div>
         </div>
         <div style="margin: 5% 0" class="col-md-6">
             <div class="row">
-                    <div class="text-center col-md-4">
-                        <i class="d-block mx-auto fa fa-3x fa-paper-plane-o"></i>
-                        <h3 class="mb-3 text-primary">
-                            <b>Insurance and Resources</b>
-                        </h3>
-                    </div>
+                <div class="text-center col-md-4">
+                    <i class="d-block mx-auto fa fa-3x fa-paper-plane-o"></i>
+                    <h3 class="mb-3 text-primary">
+                        <b>Insurance and Resources</b>
+                    </h3>
+                </div>
                 <div class="col-md-8">
                     <p>The HBPA provides benevolence to horsemen in need, education and recreation programs to the backstretch, various insurance packages which include &#8211 free of charge to members &#8211 Fire and Disaster Insurance and Claiming Insurance.&nbsp;</p>
                 </div>
@@ -89,7 +89,7 @@
         </div>
     </div>
     @*Second Row of Icons and Text**@
-    <div class="row" style="margin-bottom: -50px !important" >
+    <div class="row" style="margin-bottom: -50px !important">
         <div style="margin: 5% 0" class="col-md-6">
             <div class="row">
                 <div class="text-center col-md-4">
@@ -119,8 +119,8 @@
         </div>
     </div>
     @*Third Row of Icons and Text**@
-    <div class="row" style="margin-bottom: -50px !important" >
-        <div style="margin: 5% 0"class="col-md-6">
+    <div class="row" style="margin-bottom: -50px !important">
+        <div style="margin: 5% 0" class="col-md-6">
             <div class="row">
                 <div class="text-center col-md-4">
                     <i class="d-block mx-auto fa fa-3x fa-users"></i>
@@ -140,8 +140,8 @@
     </div>
 </div>
 <br />
-@* FB/Poll/Twitter Section *@
-<div class="container-fluid">
+@*  Social Media Section *@
+<div class="container-fluid" align="center">
     <div class="row well col-md-12" style="background: rgba(249, 249, 249, 0.5);">
         @*Facebook*@
         <div class="col-md-4">
@@ -149,49 +149,14 @@
         </div>
 
         @*Polls*@
-        <div class="col-md-4">
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSdqelNNtPyAMdC1PCM0RzNQPV8lwY0FvhoZWFGfICrlacJE8w/formResponse">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            Do you favor or oppose more restrictions on pre-race medicine testing?
-                        </h3>
-                    </div>
+        <div class="col-md-4" align="center">
 
-                    <div class="panel-body">
-                        <div class="input-wrap">
-                            <input type="radio" name="entry.1275145631" id="c1" value="Favor" />
-                            <label for="c1">Favor</label>
-                        </div>
-
-                        <div class="input-wrap">
-                            <input type="radio" name="entry.1275145631" id="c2" value="Neutral" />
-                            <label for="c2">Neutral</label>
-                        </div>
-
-                        <div class="input-wrap">
-                            <input type="radio" name="entry.1275145631" id="c3" value="Oppose" />
-                            <label for="c3">Oppose</label>
-                        </div>
-                    </div>
-
-                    <input class="button" type="submit" value="Submit">
-
-                </div>
-            </form>
-
-            <form action="mailto:admin@email.com" method="POST">
-                <fieldset class="form-group">
-                    <label for="newsletterEmail">Sign up for our monthly newsletter!</label>
-                    <input type="email" class="form-control" id="newsletterEmail" placeholder="Enter email">
-                </fieldset>
-                <button type="submit" class="btn btn-outline-light">Submit</button>
-            </form>
+            <ul class="juicer-feed" data-feed-id="kyhbpa2017"></ul>
 
         </div>
 
         @*Twitter*@
-        <div class="col-md-4">
+        <div class="col-md-4" align="center">
             <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/KyHBPA?ref_src=twsrc%5Etfw">Tweets by KyHBPA</a>
             <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>

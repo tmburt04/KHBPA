@@ -32,6 +32,13 @@
                             </ul>
                         </li>
                         <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Membership<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Benefits", "Index", "Resources")</li>
+                                <li>@Html.ActionLink("Polls", "Polls", "Resources")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle">News<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("News", "Index", "News")</li>
@@ -39,13 +46,6 @@
                                 <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
                             </ul>
                         <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
-                       <li class="dropdown">
-                           <a href="#" data-toggle="dropdown" class="dropdown-toggle">Membership<b class="caret"></b></a>
-                           <ul class="dropdown-menu">
-                               <li>@Html.ActionLink("Benefits", "Index", "Resources")</li>
-                               <li></li>
-                           </ul>
-                       </li>
                         <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Admin", "Index", "UserManagement")</li>
                     </ul>
@@ -60,7 +60,7 @@
         <footer>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <p class="small" style="font-weight: bold;">
                             &copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association
                         </p>
@@ -88,7 +88,7 @@
                         </div>
                         <br />
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <p class="small" style="font-weight: bold;">
                             Contact Us
                         </p>
@@ -111,6 +111,15 @@
                             <i class="fa d-inline mr-3 fa-map-marker text-secondary"></i>: 3729 S. Fourth St.
                             <br>&nbsp; &nbsp; &nbsp; Louisville, KY 40214
                         </p>
+                    </div>
+                    <div class="col-md-4">
+                        <form action="mailto:admin@email.com" method="POST" enctype="multipart/form-data">
+                            <fieldset class="form-group">
+                                <label for="newsletterEmail">Sign up for our monthly newsletter!</label>
+                                <input type="email" class="form-control" id="newsletterEmail" placeholder="Enter email">
+                            </fieldset>
+                            <button type="submit" class="btn btn-outline-light">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
