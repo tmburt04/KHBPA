@@ -47,7 +47,12 @@
                             </ul>
                         <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
                         <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Admin", "Index", "UserManagement")</li>
+                        @{
+                            if (User.IsInRole("Admin") || User.IsInRole("Member"))
+                            {
+                                <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
+                            }
+                        }
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
