@@ -1624,7 +1624,7 @@ a.bg-primary:hover, a.bg-primary:focus {
 }
 
 a.bg-success:hover, a.bg-success:focus {
-    background-color: #128f76
+    background-color: #4A7B53
 }
 
 .bg-info {
@@ -3531,19 +3531,19 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
     .btn-success:focus, .btn-success.focus {
         color: #ffffff;
-        background-color: #128f76;
+        background-color: #4A7B53;
         border-color: #0a4b3e
     }
 
     .btn-success:hover {
         color: #ffffff;
-        background-color: #128f76;
+        background-color: #4A7B53;
         border-color: #11866f
     }
 
     .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
         color: #ffffff;
-        background-color: #128f76;
+        background-color: #4A7B53;
         border-color: #11866f
     }
 
@@ -5009,11 +5009,11 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     }
 
     .navbar-inverse .navbar-toggle {
-        border-color: #128f76
+        border-color: #4A7B53
     }
 
         .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-            background-color: #128f76
+            background-color: #4A7B53
         }
 
         .navbar-inverse .navbar-toggle .icon-bar {
@@ -5021,7 +5021,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
         }
 
     .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-        border-color: #149c82
+        border-color: #4A7B53
     }
 
     .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
@@ -5275,7 +5275,7 @@ a.label:hover, a.label:focus {
 }
 
     .label-success[href]:hover, .label-success[href]:focus {
-        background-color: #128f76
+        background-color: #4A7B53
     }
 
 .label-info {
