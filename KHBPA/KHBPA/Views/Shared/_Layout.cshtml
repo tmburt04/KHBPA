@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,7 +9,7 @@
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 </head>
 <body>
-    <div class="background">
+    <div class="background" style="background-size: cover">
         <div class="navbar navbar-inverse navbar-static-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -19,7 +19,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a href="@Url.Action("Index", "Home")" class="navbar-brand">
-                        <img class="img-responsive" src="~/Content/Images/KYHBPA-Logo2.png" title="home" />
+                        <img style="margin-top: -10px" class="img-responsive" src="~/Content/Images/KYHBPA-Logo2.png" title="home" />
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -138,6 +138,11 @@
 </body>
 </html>
 
+<style>
+  div.background::before {
+    background-size: cover !important;
+  }
+</style>
 <script>
     paypal.Button.render({
 
