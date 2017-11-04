@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,7 +11,7 @@
 
 </head>
 <body>
-    <div class="background">
+    <div class="background" style="background-size: cover">
         <div class="navbar navbar-inverse navbar-static-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -21,7 +21,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a href="@Url.Action("Index", "Home")" class="navbar-brand">
-                        <img class="img-responsive" src="~/Content/Images/KYHBPA-Logo2.png" title="home" />
+                        <img style="margin-top: -10px" class="img-responsive" src="~/Content/Images/KYHBPA-Logo2.png" title="home" />
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -49,7 +49,12 @@
                             </ul>
                         <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
                         <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Admin", "Index", "UserManagement")</li>
+                        @{
+                            if (User.IsInRole("Admin") || User.IsInRole("Member"))
+                            {
+                                <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
+                            }
+                        }
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
@@ -135,6 +140,11 @@
 </body>
 </html>
 
+<style>
+  div.background::before {
+    background-size: cover !important;
+  }
+</style>
 <script>
     paypal.Button.render({
 
