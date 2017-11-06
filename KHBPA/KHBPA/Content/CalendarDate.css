@@ -33,9 +33,9 @@ div.calendarDate {
         top: 0;
         padding: 0.4em 0;
         color: #fff;
-        background-color: #19aaaa;
+        background-color: #4A7B53;
         border-bottom: 1px dashed #ddd;
-        box-shadow: 0 2px 0 #19aaaa;
+        box-shadow: 0 2px 0 #4A7B53;
     }
 
     div.calendarDate em {
@@ -44,7 +44,7 @@ div.calendarDate {
         color: #fff;
         padding-top: .2em;
         height: 1.6em;
-        background-color: #19aaaa;
+        background-color: #4A7B53;
     }
 
     div.calendarDate span {
