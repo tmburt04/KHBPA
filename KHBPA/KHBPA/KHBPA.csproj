@@ -368,8 +368,6 @@
     <Content Include="Content\Images\Churchill-Logo.png" />
     <Content Include="Content\Images\Ellis-Park-Logo-TP.png" />
     <Content Include="Content\Images\Ellis-Park-Logo.png" />
-    <Content Include="Content\Images\FB-Icon.png" />
-    <Content Include="Content\Images\Instagram-Icon.png" />
     <Content Include="Content\Images\jockeyImg.jpg" />
     <Content Include="Content\Images\Keeneland-Logo-TP.png" />
     <Content Include="Content\Images\Keeneland-Logo.png" />
@@ -428,8 +426,6 @@
     <Content Include="Content\Images\KYHBPA-Pics\Turfway-Park\9.jpg" />
     <Content Include="Content\Images\Turfway-Logo-TP.png" />
     <Content Include="Content\Images\Turfway-Logo.png" />
-    <Content Include="Content\Images\Twitter-Icon.png" />
-    <Content Include="Content\Images\TwitterFeed.png" />
     <Content Include="Content\Images\UserIcon.png" />
     <Content Include="Content\MainTheme.css" />
     <Content Include="Content\Navibar-CSS.css" />
