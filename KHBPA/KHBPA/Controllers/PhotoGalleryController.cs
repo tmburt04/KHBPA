@@ -40,6 +40,10 @@ namespace KHBPA.Controllers
         {
             return View();
         }
+        public ActionResult PhotoUpload()
+        {
+            return View();
+        }
 
         // POST: PhotoGallery/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -121,6 +125,34 @@ namespace KHBPA.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost, ActionName("UploadDocument")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult UploadDocument(HttpPostedFileBase file)
+        {
+            Document document = new Document();
+            if (file !=null && file.ContentLength > 0)
+            {
+                byte[] uploadedFile = new byte[file.InputStream.Length];
+                file.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
+
+                document.DocumentName = "Photo";
+                document.UploadDate = DateTime.Now;
+                document.UploadedBy = "Me";
+                document.ContentType = "Photo";
+                document.Discriminator = "WTF is a Discriminator?";
+                document.ContentLength = 1;
+                document.FileBytes = uploadedFile;
+                db.Document.Add(document);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(document);
+            }
+        }
+
 
         protected override void Dispose(bool disposing)
         {
