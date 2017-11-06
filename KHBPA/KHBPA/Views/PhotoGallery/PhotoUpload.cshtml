@@ -1,0 +1,23 @@
+﻿@using KHBPA.Controllers;
+@{
+    ViewBag.Title = "UploadDocument";
+}
+
+<h2 style="margin-left:3%">Upload Photo</h2>
+<hr />
+<div class="panel" style="margin-left:3%">
+    <div class="panel-heading">
+    </div>
+    @using (Html.BeginForm("UploadDocument", "PhotoGallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label for="file">Upload Form</label>
+            <span class="btn btn-default" style="margin-left:1%;">
+                <input type="file" name="file" id="file" />
+            </span>
+        </div>
+        <br />
+        <input type="submit" class="btn btn-success" value="Add Photo"  />
+        @Html.ActionLink("Back to List", "Index")
+    }
+</div>
