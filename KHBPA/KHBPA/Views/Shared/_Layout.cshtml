@@ -1,142 +1,165 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Kentucky Horsemens Benevolent and Protective Association</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewBag.Title - Kentucky Horsemens Benevolent and Protective Association</title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+  <link rel="stylesheet" href="~/Content/PollingCSS.css" type="text/css" />
+
 </head>
 <body>
-    <div class="background">
-        <div class="navbar navbar-inverse navbar-static-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="@Url.Action("Index", "Home")" class="navbar-brand">
-                        <img class="img-responsive" src="~/Content/Images/KYHBPA-Logo2.png" title="home" />
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">About Us<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("About KHBPA", "About", "Home")</li>
-                                <li>@Html.ActionLink("Board Of Directors", "BoardOfDirectors", "Home")</li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">News<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("News", "Index", "News")</li>
-                                <li>@Html.ActionLink("Blog", "Index", "Posts")</li>
-                                <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
-                            </ul>
-                        <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
-                       <li class="dropdown">
-                           <a href="#" data-toggle="dropdown" class="dropdown-toggle">Membership<b class="caret"></b></a>
-                           <ul class="dropdown-menu">
-                               <li>@Html.ActionLink("Benefits", "Index", "Resources")</li>
-                               <li></li>
-                           </ul>
-                       </li>
-                        <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Admin", "Index", "UserManagement")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
+  <div class="background">
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+            <img style="margin-top: -10px" class="img-responsive" src="~/Content/Images/KYHBPA-Logo2.png" title="home" />
+          </a>
         </div>
-        <div>
-            @RenderBody()
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">About Us<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>@Html.ActionLink("About KHBPA", "About", "Home")</li>
+                <li>@Html.ActionLink("Board Of Directors", "BoardOfDirectors", "Home")</li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Membership<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Benefits", "Index", "Resources")</li>
+                <li>@Html.ActionLink("Polls", "Polls", "Resources")</li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">News<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>@Html.ActionLink("News", "Index", "News")</li>
+                <li>@Html.ActionLink("Blog", "Index", "Posts")</li>
+                <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+              </ul>
+            <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
+            <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+            @{
+                if (User.IsInRole("Admin") || User.IsInRole("Member"))
+                {
+                  <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
+                }
+            }
+          </ul>
+          @Html.Partial("_LoginPartial")
         </div>
-        <hr />
-        <footer>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p class="small" style="font-weight: bold;">
-                            &copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association
-                        </p>
-                        <p class="small">
-                            Background image courtesy of David Clow.
-                        </p>
-                        <div style="display: inline; font-size: 12px; line-height: 12px;">
-                            @Html.ActionLink("About KHBPA", "About", "Home") |
-                            @Html.ActionLink("Benefits", "Index", "Resources") |
-                            @Html.ActionLink("News", "Index", "News") |
-                            @Html.ActionLink("Blog", "Index", "Posts") |
-                            @Html.ActionLink("Calendar", "Index", "Event") |
-                            <a href="https://paypal.com">Donate</a>
-                        </div>
-                        <br />
-                        <div align="left" style="line-height: 12px;">
-
-
-                            <p class="small" style="font-weight: bold;">
-                                Follow Us
-                            </p>
-                            <a href="https://www.facebook.com/kyhbpa" target="blank"><i class="fa fa-facebook fa-lg d-inline mr-3 text-white"></i></a>
-                            <a href="https://twitter.com/kyhbpa" target="blank"><i class="fa fa-twitter fa-lg d-inline mx-3 text-white"></i></a>
-                            <a href="https://www.instagram.com/kyhbpa" target="blank"><i class="fa fa-instagram fa-lg d-inline mx-3 text-white"></i></a>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="col-md-6">
-                        <p class="small" style="font-weight: bold;">
-                            Contact Us
-                        </p>
-                        <p class="small">
-                            Kentucky HBPA
-                        </p>
-                        <p class="small">
-                            <i class="fa d-inline mr-3 text-secondary fa-clock-o"></i>: Mon-Fri 8:30 AM - 4:30 PM
-                        </p>
-                        <p class="small">
-                            <i class="fa d-inline mr-3 text-secondary fa-phone"></i>: 502-363-1077
-                        </p>
-                        <p class="small">
-                            <i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>:
-                            <a href="mailto:kentuckyhbpa@gmail.com">
-                                kentuckyhbpa@gmail.com
-                            </a>
-                        </p>
-                        <p style="line-height: 12px !important; font-size: 12px; text-align:justify">
-                            <i class="fa d-inline mr-3 fa-map-marker text-secondary"></i>: 3729 S. Fourth St.
-                            <br>&nbsp; &nbsp; &nbsp; Louisville, KY 40214
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+      </div>
     </div>
+    <div>
+      @RenderBody()
+    </div>
+    <hr />
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <p class="small" style="font-weight: bold;">
+              &copy; @DateTime.Now.Year - Kentucky Horsemen's Benevolent and Protective Association
+            </p>
+            <p class="small">
+              Background image courtesy of David Clow.
+            </p>
+            <div style="display: inline; font-size: 12px; line-height: 12px;">
+              @Html.ActionLink("About KHBPA", "About", "Home") |
+              @Html.ActionLink("Benefits", "Index", "Resources") |
+              @Html.ActionLink("News", "Index", "News") |
+              @Html.ActionLink("Blog", "Index", "Posts") |
+              @Html.ActionLink("Calendar", "Index", "Event") |
+              <a href="https://paypal.com">Donate</a>
+            </div>
+            <br /><br />
+            <div align="left" style="line-height: 12px;">
+
+
+              <p class="small" style="font-weight: bold;">
+                Follow Us
+              </p>
+
+              <a href="https://www.facebook.com/kyhbpa" target="blank"><i class="fa fa-facebook-square fa-lg d-inline mr-3 text-white"></i></a>
+              <a href="https://twitter.com/kyhbpa" target="blank"><i class="fa fa-twitter-square fa-lg d-inline mx-3 text-white"></i></a>
+              <a href="https://www.instagram.com/kyhbpa2017" target="blank"><i class="fa fa-instagram fa-lg d-inline mx-3 text-white"></i></a>
+            </div>
+            <br />
+          </div>
+          <div class="col-md-4">
+            <p class="small" style="font-weight: bold;">
+              Contact Us
+            </p>
+            <p class="small">
+              Kentucky HBPA
+            </p>
+            <p class="small">
+              <i class="fa d-inline mr-3 text-secondary fa-clock-o"></i>: Mon-Fri 8:30 AM - 4:30 PM
+            </p>
+            <p class="small">
+              <i class="fa d-inline mr-3 text-secondary fa-phone"></i>: 502-363-1077
+            </p>
+            <p class="small">
+              <i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>:
+              <a href="mailto:kentuckyhbpa@gmail.com">
+                kentuckyhbpa@gmail.com
+              </a>
+            </p>
+            <p style="line-height: 12px !important; font-size: 12px; text-align:justify">
+              <i class="fa d-inline mr-3 fa-map-marker text-secondary"></i>: 3729 S. Fourth St.
+              <br>&nbsp; &nbsp; &nbsp; Louisville, KY 40214
+            </p>
+          </div>
+          <div class="col-md-4">
+            <form action="mailto:admin@email.com" method="POST" enctype="multipart/form-data">
+              <fieldset class="form-group">
+                <label for="newsletterEmail">Sign up for our monthly newsletter!</label>
+                <input type="email" class="form-control" id="newsletterEmail" placeholder="Enter email">
+              </fieldset>
+              <button type="submit" class="btn btn-outline-light">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+  </div>
 </body>
 </html>
 
+<style>
+  div.background::before {
+    background-size: cover !important;
+    background-repeat: round !important;
+  }
+</style>
 <script>
-    paypal.Button.render({
+  paypal.Button.render({
 
-        env: 'production', // Or 'sandbox',
+    env: 'production', // Or 'sandbox',
 
-        commit: true, // Show a 'Pay Now' button
+    commit: true, // Show a 'Pay Now' button
 
-        payment: function () {
-            // Set up the payment here
-        },
+    payment: function () {
+      // Set up the payment here
+    },
 
-        onAuthorize: function (data, actions) {
-            // Execute the payment here
-        }
+    onAuthorize: function (data, actions) {
+      // Execute the payment here
+    }
 
-    }, '#paypal-button');
+  }, '#paypal-button');
 </script>

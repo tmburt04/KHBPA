@@ -5,37 +5,50 @@
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-
+<link rel="stylesheet" href="~/Content/SocialMediaIcons.css" type="text/css" />
+<style>
+    .img {
+        position: relative;        
+        width: 200px;
+        height: 200px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
 
 <div class="container">
     <div class="row" style="margin: 3% 0">
-        <div class=" col-sm-11 col-sm-offset-1" style="background-color: #18bc9c !important;">
+        <div class=" col-sm-11 col-sm-offset-1" style="background-color: #0D3514 !important;">
             <h1 class="display-3 text-primary text-uppercase">@ViewBag.Title</h1>
         </div>
         <div class="well col-sm-11 col-sm-offset-1" style="background: rgba(236, 240, 241, 0.85); border-radius: 5px; box-shadow: rgba(175,175,175, 0.5) 3px 3px 5px">
             <p>
-                @Html.ActionLink("Add New Photo", "Create")
+                @Html.ActionLink("Add New Photo", "PhotoUpload")
             </p>
             <table class="table">
                 @{int count = 0; }
                 @foreach (var item in Model)
                 {
-                    if(count == 0)
+                    if(item.FileBytes != null || item.FileBytes.Equals(""))
                     {
-                        @:<tr>                           
-                    }
-                    if (count < 4)
-                    {
-                        <td>
-                            <img style="max-width:100%;" src="@Html.DisplayFor(modelItem => item.DocumentName)" />
-                            <p style="text-align:center">@Html.ActionLink("Remove", "Delete", new { id = item.ID })</p>
-                        </td>
-                        count++;
-                    }
-                    if(count == 4)
-                    {
-                       @: </tr>
+                        if(count== 0)
+                        {
+                            @:<tr>  
+                        }
+                        if (count < 4)
+                        {
+                            <td>
+                                <img class="img" src="@(string.Format("data:image/gif;base64,{0}",Convert.ToBase64String(item.FileBytes)))" />
+                                <p style="text-align:center">@Html.ActionLink("Remove", "Delete", new { id = item.ID })</p>
+                            </td>
+                            count++;
+                        }
+                        if (count == 4)
+                        {
+                            @: </tr>
                         count = 0;
+                        }
                     }
                 }
             </table>

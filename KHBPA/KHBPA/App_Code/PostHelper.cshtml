@@ -13,7 +13,7 @@
          </div><br />
         
         <div class="commentsTab">
-            <a href="@Href("~/Posts/Details/" + post.ID + "#comments")"><span class="glyphicon glyphicon-comment badge"> @post.Comments.Count </span></a>
+            <a href="@Href("~/Posts/Details/" + post.ID + "#comments")"><span class="glyphicon glyphicon-comment badge"> @post.Comments.Count<br/> </span></a>
         </div>
     </div>
     <div class="postContent col-md-12">
@@ -22,7 +22,7 @@
             <p class="glyphicon glyphicon-tags">  Tags: 
             @foreach (Tag tag in post.Tags)
             {
-                <span class="tag"><a href="@Href("~/Posts/Tags/" + tag.Name)"><span class="badge">@tag.Name</span></a></span>
+                <span class="tag"><a href="@Href("~/Posts/Tags/" + tag.Name)"><span class="badge"> @tag.Name </span></a></span>
             }
             </p>
         </div>
@@ -43,7 +43,7 @@
     }
     if (showComments)
     {
-        <div id="commentContainer">
+        <div id="commentContainer" class="col-sm-12 col-lg-3">
             <a id="comments"></a>
             @foreach (Comment comment in post.Comments.OrderBy(x => x.DateTime))
             {
@@ -66,7 +66,7 @@
                 </div>
                 if (isAdmin)
                 {
-                    <div class="commentControlPanel">
+                    <div class="commentControlPanel col-sm-12 col-lg-3">
                         <a href="@Href("~/Posts/DeleteComment/" + comment.ID)" class="btn btn-primary" role="button">Delete Comment</a>
                     </div>
                 }

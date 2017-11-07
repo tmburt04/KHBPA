@@ -1,36 +1,38 @@
-﻿@model List<KHBPA.Models.ViewModels.SelectUserRolesViewModel>
+@model List<KHBPA.Models.ViewModels.SelectUserRolesViewModel>
 
 @{
     ViewBag.Title = "User Roles";
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="~/Content/SocialMediaIcons.css" type="text/css" />
+<div class="container-fluid">
+  <h2>User Roles</h2>
 
-<h2>User Roles</h2>
+  @{ var list = Model.ToList();
+      for (int i = 0; i < list.Count; i++)
+      {
+        <div class="col-md-12">
+          <div class="col-md-4"><b>User Name</b></div>
+          <div class="col-md-4"><b>Roles</b></div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-4">@Html.DisplayFor(modelItem => list[i].UserName)</div>
+          <div class="col-md-4">
+            @foreach (var role in list[i].Roles)
+            {
+              <p>@role.RoleName</p>
 
-@{ var list = Model.ToList();
-    for (int i = 0; i < list.Count; i++)
-    {
-            <div class="col-md-12">
-                <div class="col-md-4"><b>User Name</b></div>
-                <div class="col-md-4"><b>Roles</b></div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-4">@Html.DisplayFor(modelItem => list[i].UserName)</div>
-                <div class="col-md-4">
-                    @foreach (var role in list[i].Roles)
-                    {
-                        <p>@role.RoleName</p>
+            }
+          </div>
 
-                    }
-                </div>
+          <div class="col-md-4">
+            <a href="@Url.Action("Edit", "UserManagement", new {@id = list[i].Id})">Edit</a>
+          </div>
+        </div>
+      }
+  }
 
-                <div class="col-md-4">
-                    <a href="@Url.Action("Edit", "UserManagement", new {@id = list[i].Id})">Edit</a>
-                </div>
-            </div>
-        }
-}
-
-<br/>
-<br/>
-<br/>
+  <br />
+  <br />
+  <br />
+</div>

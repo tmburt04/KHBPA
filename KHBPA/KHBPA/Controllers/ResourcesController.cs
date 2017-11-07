@@ -123,5 +123,11 @@ namespace KHBPA.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Polls()
+        {
+
+            return View();
+        }
     }
 }

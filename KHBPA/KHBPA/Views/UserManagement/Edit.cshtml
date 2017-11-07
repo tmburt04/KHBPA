@@ -1,17 +1,16 @@
 ﻿@model KHBPA.Models.ViewModels.EditUserViewModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit User Information";
 }
 
-<h2>Edit</h2>
+<h2>Edit User Information</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    @Html.HiddenFor(m => m.OriginalUserName)
     <div class="form-horizontal">
-        <h4>EditUserViewModel</h4>
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
@@ -22,13 +21,105 @@
             </div>
         </div>
 
-        
+        <div class="form-group">
+            <div width="100%">
+                @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(m => m.Affiliation, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Affiliation, new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.ManagingPartner, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.ManagingPartner, new { @class = "form-control" })
+            </div>
 
+        </div>
+
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.State, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(m => m.IsOwner, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-1">
+                @Html.CheckBoxFor(m => m.IsOwner, new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.IsTrainer, new { @class = "col-md-1 control-label" })
+            </div>
+            <div class="col-md-1">
+                @Html.CheckBoxFor(m => m.IsTrainer, new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.IsOwnerAndTrainer, new { @class = "col-md-1 control-label" })
+            </div>
+            <div class="col-md-1">
+                @Html.CheckBoxFor(m => m.IsOwnerAndTrainer, new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.LicenseNumber, new { @class = "col-md-2 control-label" })
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.LicenseNumber, new { @class = "form-control" })
+            </div>
+        </div>
         <div class="form-group">
             @Html.Label("Role Name", new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @*@Html.DropDownList("Name")*@
-                @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, "Select Role", new { style = "width:125px" })
+                @Html.DropDownListFor(m => m.RoleName, (SelectList)ViewBag.Name, new { style = "width:125px;"})
+                @*@Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, "Select Role", new { style = "width:125px" })*@
                 @Html.ValidationMessageFor(model => model.RoleName)
             </div>
         </div>
