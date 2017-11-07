@@ -1,17 +1,16 @@
 ﻿@model KHBPA.Models.ViewModels.EditUserViewModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit User Information";
 }
 
-<h2>Edit</h2>
+<h2>Edit User Information</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.OriginalUserName)
     <div class="form-horizontal">
-        <h4>EditUserViewModel</h4>
         <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">

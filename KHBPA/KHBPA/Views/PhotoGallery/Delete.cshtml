@@ -3,17 +3,16 @@
 @{
     ViewBag.Title = "Delete";
 }
+<h2 style="margin-left:3%">Are you sure you want to remove this photo?</h2>
+<hr />
+<div style="margin-left:3%">
 
-<h2>Are you sure you want to remove this photo?</h2>
-
-<div>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-           <img src="@Html.DisplayFor(model => model.DocumentName)" style="max-width:100%;" />
+           <img src="@(string.Format("data:image/gif;base64,{0}",Convert.ToBase64String(Model.FileBytes)))" style="max-width:100%;" />
         </dt>
         <dd></dd>
-        <dt style="width:15%">
+        <dt >
 
         </dt>
         <dd></dd>

@@ -83,6 +83,7 @@ namespace DeveloperUniversity.Controllers
         {
             if (ModelState.IsValid)
             {
+                var OriginalUserName = model.OriginalUserName;
                 var user = _db.Users.FirstOrDefault(u => u.UserName == model.OriginalUserName);
                 var member = _db.Members.FirstOrDefault(m => m.Email == model.OriginalUserName);
                 var dbRole = _db.Roles?.FirstOrDefault(r => r.Name == model.RoleName);
@@ -101,9 +102,13 @@ namespace DeveloperUniversity.Controllers
                         _userManager.RemoveFromRole(user.Id, "Member");
                     }
 
-                   // _userManager.RemoveFromRole(user.Id, user.Roles.ToString());
+                        // _userManager.RemoveFromRole(user.Id, user.Roles.ToString());
+                        
                     _userManager.AddToRole(user.Id, dbRole.Name);
                     }
+
+                    user.UserName = model.UserName;
+                    
                     //Update the userName
                     member.Email = model.UserName;
                     member.FirstName = model.FirstName;
