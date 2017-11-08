@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -38,6 +38,7 @@
               <ul class="dropdown-menu">
                 <li>@Html.ActionLink("Benefits", "Index", "Resources")</li>
                 <li>@Html.ActionLink("Polls", "Polls", "Resources")</li>
+                <li>@Html.ActionLink("Documents", "Index", "Document")</li>
               </ul>
             </li>
             <li class="dropdown">
@@ -48,7 +49,7 @@
                 <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
               </ul>
             <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
-            <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+            <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>            
             @{
                 if (User.IsInRole("Admin") || User.IsInRole("Member"))
                 {

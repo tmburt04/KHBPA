@@ -24,7 +24,13 @@
         </div>
         <div class="well col-sm-11 col-sm-offset-1" style="background: rgba(236, 240, 241, 0.85); border-radius: 5px; box-shadow: rgba(175,175,175, 0.5) 3px 3px 5px">
             <p>
-                @Html.ActionLink("Add New Photo", "PhotoUpload")
+                @{
+                    if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Add New Photo", "PhotoUpload")
+                    }
+                }
+                
             </p>
             <table class="table">
                 @{int count = 0; }
@@ -40,7 +46,12 @@
                         {
                             <td>
                                 <img class="img" src="@(string.Format("data:image/gif;base64,{0}",Convert.ToBase64String(item.FileBytes)))" />
-                                <p style="text-align:center">@Html.ActionLink("Remove", "Delete", new { id = item.ID })</p>
+                                @{
+                                    if (User.IsInRole("Admin"))
+                                    {
+                                        <p style="text-align:center">@Html.ActionLink("Remove", "Delete", new { id = item.ID })</p>
+                                    }
+                                }                                
                             </td>
                             count++;
                         }

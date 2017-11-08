@@ -4,70 +4,36 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="~/Content/SocialMediaIcons.css" type="text/css" />
 
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DocumentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UploadDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UploadedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FileBytes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContentType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Discriminator)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContentLength)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DocumentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UploadDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UploadedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FileBytes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContentType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Discriminator)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContentLength)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="container">
+    <div class="row" style="margin: 3% 0">
+        <div class=" col-sm-11 col-sm-offset-1" style="background-color: #0D3514 !important;">
+            <h1 class="display-3 text-primary text-uppercase">@ViewBag.Title</h1>
+        </div>
+        <div class="well col-sm-11 col-sm-offset-1" style="background: rgba(236, 240, 241, 0.85); border-radius: 5px; box-shadow: rgba(175,175,175, 0.5) 3px 3px 5px">
+            <p>
+                @Html.ActionLink("Upload Document", "DocumentUpload")
+            </p>
+            <table class="table">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>                            
+                            @*<a href="@(string.Format("data:multipart/form-data; base64, {0}",Convert.ToBase64String(item.FileBytes)))">
+                                @Html.DisplayFor(modelItem => item.DocumentName)
+                            </a>*@
+                            @Html.ActionLink(item.DocumentName, "DownloadDocument", new { controller = "Document", documentName = item.DocumentName })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Remove", "Delete", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

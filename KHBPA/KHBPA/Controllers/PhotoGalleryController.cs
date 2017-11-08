@@ -40,6 +40,7 @@ namespace KHBPA.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult PhotoUpload()
         {
             return View();
@@ -101,6 +102,7 @@ namespace KHBPA.Controllers
         }
 
         // GET: PhotoGallery/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -118,6 +120,7 @@ namespace KHBPA.Controllers
         // POST: PhotoGallery/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Document document = db.Document.Find(id);
@@ -127,6 +130,7 @@ namespace KHBPA.Controllers
         }
 
         [HttpPost, ActionName("UploadDocument")]
+        [Authorize(Roles = "Admin")]
         //[ValidateAntiForgeryToken]
         public ActionResult UploadDocument(HttpPostedFileBase file)
         {

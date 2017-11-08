@@ -41,6 +41,10 @@ namespace KHBPA.Controllers
             return View();
         }
 
+        public ActionResult DocumentUpload()
+        {
+            return View();
+        }
         // POST: Document/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -113,6 +117,52 @@ namespace KHBPA.Controllers
             db.Document.Remove(document);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        //[Authorize]
+        [HttpPost, ActionName("UploadDocument")]        
+        public ActionResult UploadDocument(HttpPostedFileBase file, Document document)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                byte[] uploadedFile = new byte[file.InputStream.Length];
+                file.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
+
+                if (ModelState.IsValid)
+                {
+                    document.UploadDate = DateTime.Now;
+                    document.UploadedBy = "Me";
+                    document.ContentType = "Photo";
+                    document.Discriminator = "WTF is a Discriminator?";
+                    document.ContentLength = 1;
+                    document.FileBytes = uploadedFile;
+                    db.Document.Add(document);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(document);
+                }
+            }
+            else
+            {
+                return View(document);
+            }
+        }
+
+        public ActionResult DownloadDocument(string documentName)
+        {
+            var Documents = db.Document.Where(d => d.DocumentName == documentName);
+
+            var selectedDocument = Documents.FirstOrDefault();
+
+            if (selectedDocument != null)
+            {
+                return File(selectedDocument.FileBytes, "application/octet-stream", $"{selectedDocument.DocumentName}.pdf");
+                //return File(selectedDocument.FileBytes, "application/octet-stream", selectedDocument.DocumentName);
+            }
+            return RedirectToAction("DocumentUpload");
         }
 
         protected override void Dispose(bool disposing)
