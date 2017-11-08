@@ -23,7 +23,7 @@ namespace KHBPA.Controllers
             sched.EnableDataprocessor = true;
             sched.Highlighter.Enable("highlight_section");  // can create event from highlighted area
             sched.Lightbox.Add(new LightboxText("location", "Location") { Height = 50 });
-            var map = new MapView { ApiKey = "AIzaSyAiVPuK6Dil2M2QOdY38iqjvmdFwn3RTDQ" };
+            var map = new MapView { ApiKey = "" }; //Place key here before publish
             sched.Views.Add(map);
             sched.Lightbox.AddDefaults();
             sched.Config.first_hour = 5;
