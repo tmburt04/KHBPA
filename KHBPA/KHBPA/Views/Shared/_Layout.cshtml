@@ -45,7 +45,7 @@
               <ul class="dropdown-menu">
                 <li>@Html.ActionLink("News", "Index", "News")</li>
                 <li>@Html.ActionLink("Blog", "Index", "Posts")</li>
-                <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                <li>@Html.ActionLink("Calendar", "Index", "EventCalendar")</li>
               </ul>
             <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
             <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
@@ -79,7 +79,7 @@
               @Html.ActionLink("Benefits", "Index", "Resources") |
               @Html.ActionLink("News", "Index", "News") |
               @Html.ActionLink("Blog", "Index", "Posts") |
-              @Html.ActionLink("Calendar", "Index", "Event") |
+              @Html.ActionLink("Calendar", "Index", "EventCalendar") |
               <a href="https://paypal.com">Donate</a>
             </div>
             <br /><br />
@@ -133,9 +133,29 @@
       </div>
     </footer>
 
-    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery")      
+      <script src='~/Scripts/lib/moment.min.js'></script>
+      <script src='~/Scripts/fullcalendar.js'></script>
+      <script type='text/javascript' src='~/Scripts/gcal.js'></script>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+      <script>
+
+    $(document).ready(function() {
+
+        // page is now ready, initialize the calendar...
+
+        $('#calendar').fullCalendar({
+
+            googleCalendarApiKey: '', // put key here before publish
+            events: {
+                googleCalendarId: 'imua60kmqre9ar9had25t3ue48@group.calendar.google.com'
+            }
+        });
+    });
+
+      </script>
   </div>
 </body>
 </html>
