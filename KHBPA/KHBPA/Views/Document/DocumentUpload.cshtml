@@ -2,16 +2,15 @@
 @{
     ViewBag.Title = "DocumentUpload";
 }
-
-<h2 style="margin-left:3%">Upload Photo</h2>
+<h2 style="margin-left:3%">Upload Document</h2>
 <hr />
-<div class="panel" style="margin-left:3%">
-    <div class="panel-heading">
+<div class="container-fluid" style="margin-left:3%">
+    <div >
     </div>
     @using (Html.BeginForm("UploadDocument", "Document", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <div>
-            @Html.Label("Document Title");
+        <div class="container-fluid">
+            @Html.Label("Document Title")
             @Html.EditorFor(model => model.DocumentName, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.DocumentName, "", new { @class = "text-danger" })
             <br />
@@ -20,10 +19,13 @@
             <span class="btn btn-default">
                 <input type="file" name="file" id="file" />
             </span>
-            <input type="submit" class="btn btn-success" value="Add Photo" />
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" class="btn btn-success" style="margin-left:0%; margin-bottom:0px; margin-top:3%;" value="Upload" />
+            <br />
+           <label>@Html.ActionLink("Back to List", "Index")</label>
+  
         </div>
-        <br />
         
     }
+   
+   
 </div>

@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Photo Gallery";
 }
-
+@Scripts.Render("~/bundles/jquery")
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="~/Content/SocialMediaIcons.css" type="text/css" />
 <style>
@@ -38,30 +38,34 @@
                 {
                     if(item.FileBytes != null || item.FileBytes.Equals(""))
                     {
-                        if(count== 0)
+                        if (item.DocumentName.Equals("Photo"))
                         {
-                            @:<tr>  
-                        }
-                        if (count < 4)
-                        {
-                            <td>
-                                <img class="img" src="@(string.Format("data:image/gif;base64,{0}",Convert.ToBase64String(item.FileBytes)))" />
-                                @{
-                                    if (User.IsInRole("Admin"))
-                                    {
-                                        <p style="text-align:center">@Html.ActionLink("Remove", "Delete", new { id = item.ID })</p>
+                            if (count == 0)
+                            {
+                                @:<tr>
+                            }
+                            if (count < 4)
+                            {
+                                <td>                                  
+                                    <img class="img" src="@(string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(item.FileBytes)))" />
+                                    @{
+                                        if (User.IsInRole("Admin"))
+                                        {
+                                            <br />
+                                           <center>@Html.ActionLink("Remove", "Delete", new { id = item.ID })</center>
+                                        }
                                     }
-                                }                                
-                            </td>
-                            count++;
-                        }
-                        if (count == 4)
-                        {
-                            @: </tr>
-                        count = 0;
+                                </td>
+                               count++;
+                            }
+                            if (count == 4)
+                            { 
+                                @: </tr> 
+                                count =0;
+                            }
                         }
                     }
-                }
+                 }
             </table>
         </div>
     </div>

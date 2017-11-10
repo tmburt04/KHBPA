@@ -6,7 +6,6 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="~/Content/SocialMediaIcons.css" type="text/css" />
-
 <div class="container">
     <div class="row" style="margin: 3% 0">
         <div class=" col-sm-11 col-sm-offset-1" style="background-color: #0D3514 !important;">
@@ -19,19 +18,17 @@
             <table class="table">
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>                            
-                            @*<a href="@(string.Format("data:multipart/form-data; base64, {0}",Convert.ToBase64String(item.FileBytes)))">
-                                @Html.DisplayFor(modelItem => item.DocumentName)
-                            </a>*@
-                            @Html.ActionLink(item.DocumentName, "DownloadDocument", new { controller = "Document", documentName = item.DocumentName })
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Remove", "Delete", new { id = item.ID })
-                        </td>
-                    </tr>
+                    if (!item.DocumentName.Equals("Photo"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(item.DocumentName, "DownloadDocument", new { controller = "Document", documentName = item.DocumentName }, new { @style = "font-weight:bold; font-size:25px;" })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Remove", "Delete", new { id = item.ID })
+                            </td>
+                        </tr>
+                    }
                 }
             </table>
         </div>
