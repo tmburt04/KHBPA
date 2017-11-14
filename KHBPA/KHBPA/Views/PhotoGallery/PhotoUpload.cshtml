@@ -5,19 +5,19 @@
 
 <h2 style="margin-left:3%">Upload Photo</h2>
 <hr />
-<div class="panel" style="margin-left:3%">
-    <div class="panel-heading">
-    </div>
+<div class="container" style="margin-left:3%">
     @using (Html.BeginForm("UploadDocument", "PhotoGallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <div>
-            <label for="file">Upload Form</label>
-            <span class="btn btn-default" style="margin-left:1%;">
+        <div >
+            <label for="file">Upload File</label>
+            <br />
+            <span class="btn btn-default" >
                 <input type="file" name="file" id="file" />
             </span>
         </div>
         <br />
-        <input type="submit" class="btn btn-success" value="Add Photo"  />
+        <input type="submit" class="btn btn-success" style="margin-left:0%; margin-bottom:0px; margin-top:3%;" value="Add Photo"  />
+        <br />
         @Html.ActionLink("Back to List", "Index")
     }
 </div>

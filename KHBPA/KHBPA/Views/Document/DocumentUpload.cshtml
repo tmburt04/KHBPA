@@ -1,0 +1,31 @@
+﻿@model KHBPA.Models.Document
+@{
+    ViewBag.Title = "DocumentUpload";
+}
+<h2 style="margin-left:3%">Upload Document</h2>
+<hr />
+<div class="container-fluid" style="margin-left:3%">
+    <div >
+    </div>
+    @using (Html.BeginForm("UploadDocument", "Document", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="container-fluid">
+            @Html.Label("Document Title")
+            @Html.EditorFor(model => model.DocumentName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DocumentName, "", new { @class = "text-danger" })
+            <br />
+            <label for="file">Upload Form</label>
+            <br />
+            <span class="btn btn-default">
+                <input type="file" name="file" id="file" />
+            </span>
+            <input type="submit" class="btn btn-success" style="margin-left:0%; margin-bottom:0px; margin-top:3%;" value="Upload" />
+            <br />
+           <label>@Html.ActionLink("Back to List", "Index")</label>
+  
+        </div>
+        
+    }
+   
+   
+</div>
