@@ -41,7 +41,7 @@
             <br />
             @if (isAdmin)
             {
-                <button type="button" class="btn btn-primary">@Html.ActionLink("Create new post", "Edit")</button>
+                <a id="newPost" role="button" class="btn btn-primary" href="@Href("~/Posts/Edit")">Create New Post</a>
             }
         </p>
     </div>
