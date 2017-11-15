@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -49,13 +49,18 @@
                 <li>@Html.ActionLink("Calendar", "Index", "EventCalendar")</li>
               </ul>
             <li>@Html.ActionLink("Photo Gallery", "Index", "PhotoGallery")</li>
-            <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>            
+            <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
             @{
                 if (User.IsInRole("Admin") || User.IsInRole("Member"))
                 {
                   <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
                 }
             }
+            <li>
+              <a target="_blank" href="https://www.paypal.com">
+                <span class="headerDonateButton">Donate</span>
+              </a>
+            </li>
           </ul>
           @Html.Partial("_LoginPartial")
         </div>
@@ -134,37 +139,56 @@
       </div>
     </footer>
 
-    @Scripts.Render("~/bundles/jquery")      
-      <script src='~/Scripts/lib/moment.min.js'></script>
-      <script src='~/Scripts/fullcalendar.js'></script>
-      <script type='text/javascript' src='~/Scripts/gcal.js'></script>
+    @Scripts.Render("~/bundles/jquery")
+    <script src='~/Scripts/lib/moment.min.js'></script>
+    <script src='~/Scripts/fullcalendar.js'></script>
+    <script type='text/javascript' src='~/Scripts/gcal.js'></script>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-      <script>
+    <script>
 
-    $(document).ready(function() {
+      $(document).ready(function () {
 
         // page is now ready, initialize the calendar...
 
         $('#calendar').fullCalendar({
 
+<<<<<<< HEAD
+          googleCalendarApiKey: '', // put key here before publish
+          events: {
+            googleCalendarId: 'imua60kmqre9ar9had25t3ue48@group.calendar.google.com'
+          }
+=======
             googleCalendarApiKey: 'AIzaSyCUY7YOdrvRwuh3_T8EqU5EiNGmjbEKtvc', // put key here before publish
             events: {
                 googleCalendarId: 'imua60kmqre9ar9had25t3ue48@group.calendar.google.com'
             }
+>>>>>>> c7115fe20c4be022c2a4129d70348ab46b8e8567
         });
-    });
+      });
 
-      </script>
+    </script>
   </div>
 </body>
 </html>
 
 <style>
+  .headerDonateButton {
+    border-radius: 4px;
+    color: #dfdfdf;
+    padding: 2% 10%;
+    box-shadow: inset 0px 0px 0px rgba(0,0,0,0.5);
+    background-color: rgba(74, 123, 83, 0.75);
+  }
+
+    .headerDonateButton:active {
+      box-shadow: inset 1px 1px 3px rgba(0,0,0,0.5);
+      background-color: rgba(74, 123, 83, 0.85);
+    }
+
   div.background::before {
     background-size: cover !important;
-    background-repeat: round !important;
   }
 </style>
 <script>
